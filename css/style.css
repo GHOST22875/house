@@ -287,7 +287,7 @@ footer {
     align-items: center;
     height: 100%;
     position: relative;
-    top: -2px; /* Небольшая корректировка по вертикали */
+    top: -5px; /* Небольшая корректировка по вертикали */
 }
 
 .theme-toggle:hover {
