@@ -1,10 +1,21 @@
-// Скрытие меню при прокрутке вниз
-let lastScroll = 0;
+// Навигационное меню
 const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+let isScrolled = false;
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
     
+    // Эффект изменения при скролле
+    if (currentScroll > 100 && !isScrolled) {
+        navbar.classList.add('scrolled');
+        isScrolled = true;
+    } else if (currentScroll <= 100 && isScrolled) {
+        navbar.classList.remove('scrolled');
+        isScrolled = false;
+    }
+    
+    // Скрытие/показ меню при скролле
     if (currentScroll <= 0) {
         navbar.classList.remove('hidden');
         return;
@@ -20,7 +31,6 @@ window.addEventListener('scroll', () => {
     
     lastScroll = currentScroll;
 });
-
 // Слайдер фотографий
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
