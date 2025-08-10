@@ -42,3 +42,33 @@ showSlide(0);
 
 // Автоматическая смена слайдов каждые 10 секунд
 setInterval(nextSlide, 10000);
+
+// Функционал смены темы
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+const themeIcon = document.querySelector('.theme-icon');
+
+// Проверяем сохраненную тему в localStorage
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
+    body.classList.add('dark-theme');
+    themeIcon.textContent = '🌕';
+} else {
+    themeIcon.textContent = '🌑';
+}
+
+// Обработчик клика по кнопке
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    
+    if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        themeIcon.textContent = '🌕';
+    } else {
+        localStorage.setItem('theme', 'light');
+        themeIcon.textContent = '🌑';
+    }
+});
+
+// Остальной существующий код (меню и слайдер) остается без изменений
+// ... (ваш предыдущий код)
