@@ -276,22 +276,49 @@ footer {
 
 .theme-toggle {
     background: none;
-    border: none;
+    border: 2px solid currentColor; /* Обводка цветом текста */
+    border-radius: 50%; /* Круглая форма */
     cursor: pointer;
-    font-size: 24px; /* Увеличено на 1.5 раза (было 16px) */
-    padding: 0;
-    margin: 0;
-    color: inherit;
-    transition: transform 0.3s ease;
+    font-size: 24px;
+    width: 42px; /* Фиксированные размеры */
+    height: 42px;
     display: flex;
     align-items: center;
-    height: 100%;
+    justify-content: center;
+    padding: 0;
+    margin: 0 0 0 20px; /* Отступ слева */
+    color: inherit;
+    transition: all 0.3s ease;
+    background-color: transparent;
     position: relative;
-    top: -10px; /* Небольшая корректировка по вертикали */
+    top: -1px; /* Тонкая корректировка выравнивания */
 }
 
 .theme-toggle:hover {
     transform: scale(1.1);
+    border-color: #e74c3c; /* Цвет обводки при наведении */
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.3); /* Лёгкое свечение */
+}
+
+/* Темная тема - стили обводки */
+.dark-theme .theme-toggle {
+    border-color: #e0e0e0;
+}
+
+.dark-theme .theme-toggle:hover {
+    border-color: #e74c3c;
+    box-shadow: 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+/* Иконка внутри кнопки */
+.theme-icon {
+    display: block;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(15deg); /* Лёгкий поворот при наведении */
 }
 
 .nav-links li:last-child {
