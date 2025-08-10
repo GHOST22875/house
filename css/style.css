@@ -182,15 +182,7 @@ nav.hidden {
         margin-left: 0;
     }
 
-.hero-content-center {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        max-width: 800px;
-        text-align: center;
-        padding: 0 20px;
-    }
+
 
 .btn {
     display: inline-block;
