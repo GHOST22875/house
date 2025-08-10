@@ -150,12 +150,13 @@ nav.hidden {
 
     .hero-content-left {
         position: absolute;
-        left: 10%;
-        max-width: 600px;
-        text-align: left;
-        transform: none;
-        padding: 0;
-        margin: 0;
+    top: 50%;                   /* Центрирование по вертикали */
+    left: 10%;                  /* Отступ слева 10% */
+    transform: translateY(-50%); /* Точное центрирование по вертикали */
+    max-width: 600px;
+    text-align: left;
+    padding: 20px;
+    margin: 0;
     }
     .hero-content-left h1 {
         font-size: 3rem;
