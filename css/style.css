@@ -273,3 +273,70 @@ footer {
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Стили для переключателя темы */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 10px;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Общие стили для темной темы */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-theme .projects {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .project-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .project-info h3 {
+    color: #ffffff;
+}
+
+.dark-theme .project-info p {
+    color: #b0b0b0;
+}
+
+.dark-theme .section-title {
+    color: #ffffff;
+}
+
+.dark-theme footer {
+    background-color: #000000;
+}
+
+/* Стили меню для темной темы */
+.dark-theme nav:not(.scrolled) {
+    background-color: rgba(30, 30, 30, 0.98);
+}
+
+.dark-theme nav:not(.scrolled) .logo {
+    color: #ffffff;
+}
+
+.dark-theme nav:not(.scrolled) .nav-links a {
+    color: #e0e0e0;
+}
+
+.dark-theme nav:not(.scrolled) .nav-links a:hover {
+    color: #ffffff;
+}
+
+.dark-theme .theme-toggle {
+    color: #e0e0e0;
+}
