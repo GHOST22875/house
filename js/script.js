@@ -1,3 +1,35 @@
+// Добавляем обработчик для мобильного меню
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+mobileMenuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    mobileMenuToggle.classList.toggle('active');
+    
+    // Анимация иконки бургер-меню
+    if (mobileMenuToggle.classList.contains('active')) {
+        mobileMenuToggle.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translate(5px, 5px)';
+        mobileMenuToggle.querySelector('span:nth-child(2)').style.opacity = '0';
+        mobileMenuToggle.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translate(7px, -6px)';
+    } else {
+        mobileMenuToggle.querySelector('span:nth-child(1)').style.transform = '';
+        mobileMenuToggle.querySelector('span:nth-child(2)').style.opacity = '';
+        mobileMenuToggle.querySelector('span:nth-child(3)').style.transform = '';
+    }
+});
+
+// Закрываем меню при клике на ссылку
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuToggle.querySelector('span:nth-child(1)').style.transform = '';
+        mobileMenuToggle.querySelector('span:nth-child(2)').style.opacity = '';
+        mobileMenuToggle.querySelector('span:nth-child(3)').style.transform = '';
+    });
+});
+
+// Остальной JavaScript код остается без изменений
 // Навигационное меню
 const navbar = document.getElementById('navbar');
 
