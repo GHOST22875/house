@@ -173,7 +173,7 @@ nav.hidden {
     .hero-content-left .btn {
         display: inline-block;
         padding: 12px 30px;
-        background-color: #0a0a0a;
+        background-color: #242b22;
         color: white;
         text-decoration: none;
         border-radius: 5px;
@@ -188,7 +188,7 @@ nav.hidden {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    background-color: #0a0a0a;
+    background-color: #242b22;
     color: white;
     text-decoration: none;
     border-radius: 5px;
