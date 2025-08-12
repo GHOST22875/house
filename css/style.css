@@ -448,3 +448,97 @@ body.dark-theme {
 .dark-theme .theme-toggle {
     color: #e0e0e0;
 }
+
+/* Секция индивидуального проектирования */
+.custom-project {
+    background-color: #242b22;
+    color: white;
+    padding: 80px 20px;
+}
+
+.custom-project-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.custom-project-text {
+    flex: 1;
+}
+
+.custom-project-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.custom-project-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-weight: 400;
+    color: #e0e0e0;
+}
+
+.custom-project-text p {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.features-list li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.features-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E;
+}
+
+.custom-project-author {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    min-width: 300px;
+}
+
+.author-info {
+    text-align: center;
+}
+
+.author-info h4 {
+    font-size: 1.8rem;
+    margin: 15px 0;
+    color: #fff;
+}
+
+.author-info p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
