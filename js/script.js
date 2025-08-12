@@ -36,15 +36,7 @@ showSlide(0);
 // Автоматическая смена слайдов каждые 10 секунд
 let slideInterval = setInterval(nextSlide, 10000);
 
-// Остановка автоматического переключения при наведении
-const heroSection = document.querySelector('.hero');
-heroSection.addEventListener('mouseenter', () => {
-    clearInterval(slideInterval);
-});
 
-heroSection.addEventListener('mouseleave', () => {
-    slideInterval = setInterval(nextSlide, 10000);
-});
 
 // Обработка клавиш стрелок на клавиатуре
 document.addEventListener('keydown', function(e) {
