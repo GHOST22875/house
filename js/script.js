@@ -13,7 +13,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Слайдер фотографий
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
@@ -23,6 +22,10 @@ function showSlide(n) {
     slides[currentSlide].classList.add('active');
 }
 
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
 function nextSlide() {
     showSlide(currentSlide + 1);
 }
@@ -31,17 +34,26 @@ function nextSlide() {
 showSlide(0);
 
 // Автоматическая смена слайдов каждые 10 секунд
-setInterval(nextSlide, 10000);
+let slideInterval = setInterval(nextSlide, 10000);
 
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
+// Остановка автоматического переключения при наведении
+const heroSection = document.querySelector('.hero');
+heroSection.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+});
 
-// Показываем первый слайд
-showSlide(0);
+heroSection.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(nextSlide, 10000);
+});
 
-// Автоматическая смена слайдов каждые 10 секунд
-setInterval(nextSlide, 10000);
+// Обработка клавиш стрелок на клавиатуре
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+        prevSlide();
+    } else if (e.key === 'ArrowRight') {
+        nextSlide();
+    }
+});
 
 // Функционал смены темы
 const themeToggle = document.getElementById('theme-toggle');
