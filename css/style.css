@@ -449,6 +449,16 @@ body.dark-theme {
     color: #e0e0e0;
 }
 
+.dark-theme .custom-project {
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.dark-theme .custom-project-author {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 /* Секция индивидуального проектирования */
 .custom-project {
     background-color: #242b22;
