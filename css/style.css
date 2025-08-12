@@ -461,9 +461,16 @@ body.dark-theme {
 
 /* Секция индивидуального проектирования */
 .custom-project {
-    background-color: #242b22;
-    color: white;
+    background-color: #2d3a2b; /* Темно-зеленый */
+    color: #f0f0f0;
     padding: 80px 20px;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .custom-project {
+    background-color: #1a2a1a; /* Еще более темный зеленый для темной темы */
+    border-top: 1px solid #2e3a2e;
+    border-bottom: 1px solid #2e3a2e;
 }
 
 .custom-project-content {
@@ -482,19 +489,21 @@ body.dark-theme {
     font-size: 2.5rem;
     margin-bottom: 15px;
     line-height: 1.2;
+    color: #ffffff;
 }
 
 .custom-project-text h3 {
     font-size: 1.5rem;
     margin-bottom: 25px;
     font-weight: 400;
-    color: #e0e0e0;
+    color: #d0d0d0;
 }
 
 .custom-project-text p {
     margin-bottom: 30px;
     font-size: 1.1rem;
     line-height: 1.6;
+    color: #e0e0e0;
 }
 
 .features-list {
@@ -507,14 +516,19 @@ body.dark-theme {
     padding-left: 30px;
     position: relative;
     font-size: 1.1rem;
+    color: #e0e0e0;
 }
 
 .features-list li:before {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #4CAF50;
+    color: #3a8a3f; /* Темно-зеленый */
     font-weight: bold;
+}
+
+.dark-theme .features-list li:before {
+    color: #4caf50; /* Чуть светлее для темной темы */
 }
 
 .contact-buttons {
@@ -523,12 +537,38 @@ body.dark-theme {
     flex-wrap: wrap;
 }
 
+.primary-btn {
+    background-color: #2e4a2e; /* Темно-зеленый */
+    color: white;
+}
+
+.primary-btn:hover {
+    background-color: #3a5a3a;
+}
+
+.dark-theme .primary-btn {
+    background-color: #3a5a3a;
+}
+
+.dark-theme .primary-btn:hover {
+    background-color: #4a6a4a;
+}
+
 .whatsapp-btn {
-    background-color: #25D366;
+    background-color: #1a4a1a; /* Темно-зеленый WhatsApp */
+    color: white;
 }
 
 .whatsapp-btn:hover {
-    background-color: #128C7E;
+    background-color: #2a5a2a;
+}
+
+.dark-theme .whatsapp-btn {
+    background-color: #2a5a2a;
+}
+
+.dark-theme .whatsapp-btn:hover {
+    background-color: #3a6a3a;
 }
 
 .custom-project-author {
@@ -536,6 +576,12 @@ body.dark-theme {
     padding: 30px;
     border-radius: 8px;
     min-width: 300px;
+    transition: all 0.3s ease;
+}
+
+.dark-theme .custom-project-author {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #2e3a2e;
 }
 
 .author-info {
@@ -545,12 +591,13 @@ body.dark-theme {
 .author-info h4 {
     font-size: 1.8rem;
     margin: 15px 0;
-    color: #fff;
+    color: #ffffff;
 }
 
 .author-info p {
     margin-bottom: 10px;
     font-size: 1.1rem;
+    color: #d0d0d0;
 }
 
 /* Адаптация для мобильных */
