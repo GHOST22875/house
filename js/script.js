@@ -96,15 +96,15 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// Добавляем этот код к существующему скрипту
 const logo = document.querySelector('.logo');
+const navLinks = document.querySelector('.nav-links');
 
-logo.addEventListener('click', () => {
+logo.addEventListener('click', function(e) {
     if (window.innerWidth <= 768) {
+        e.preventDefault(); // Отменяем переход, если это мобильное меню
         navLinks.classList.toggle('active');
-        // Можно добавить анимацию для логотипа при клике
-        logo.classList.toggle('menu-opened');
     }
+    // На десктопах переход по ссылке произойдет автоматически
 });
 
 // Добавьте этот код в ваш script.js
