@@ -95,3 +95,14 @@ themeToggle.addEventListener('click', () => {
         themeIcon.textContent = '🌑';
     }
 });
+
+// Добавляем этот код к существующему скрипту
+const logo = document.querySelector('.logo');
+
+logo.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+        navLinks.classList.toggle('active');
+        // Можно добавить анимацию для логотипа при клике
+        logo.classList.toggle('menu-opened');
+    }
+});
