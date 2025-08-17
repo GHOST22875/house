@@ -1,118 +1,132 @@
-// Добавляем обработчик для мобильного меню
-const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-mobileMenuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function() {
+    // Навигационное меню
+    const navbar = document.getElementById('navbar');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const logo = document.querySelector('.logo');
     
-    // Анимация иконки бургер-меню
-    if (mobileMenuToggle.classList.contains('active')) {
-        mobileMenuToggle.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translate(5px, 5px)';
-        mobileMenuToggle.querySelector('span:nth-child(2)').style.opacity = '0';
-        mobileMenuToggle.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translate(7px, -6px)';
-    } else {
-        mobileMenuToggle.querySelector('span:nth-child(1)').style.transform = '';
-        mobileMenuToggle.querySelector('span:nth-child(2)').style.opacity = '';
-        mobileMenuToggle.querySelector('span:nth-child(3)').style.transform = '';
-    }
-});
-
-// Закрываем меню при клике на ссылку
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
-        mobileMenuToggle.querySelector('span:nth-child(1)').style.transform = '';
-        mobileMenuToggle.querySelector('span:nth-child(2)').style.opacity = '';
-        mobileMenuToggle.querySelector('span:nth-child(3)').style.transform = '';
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
-});
-
-// Остальной JavaScript код остается без изменений
-// Навигационное меню
-const navbar = document.getElementById('navbar');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
     
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-
-function showSlide(n) {
-    slides.forEach(slide => slide.classList.remove('active'));
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-}
-
-function prevSlide() {
-    showSlide(currentSlide - 1);
-}
-
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-
-showSlide(0);
-
-let slideInterval = setInterval(nextSlide, 10000);
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') {
-        prevSlide();
-    } else if (e.key === 'ArrowRight') {
-        nextSlide();
-    }
-});
-
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const themeIcon = document.querySelector('.theme-icon');
-
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'dark') {
-    body.classList.add('dark-theme');
-    themeIcon.textContent = '🌕';
-} else {
-    themeIcon.textContent = '🌑';
-}
-
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
+    // Слайдер
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
     
-    if (body.classList.contains('dark-theme')) {
-        localStorage.setItem('theme', 'dark');
+    function showSlide(n) {
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+    
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+    
+    // Автоматическое переключение слайдов
+    let slideInterval = setInterval(nextSlide, 5000);
+    
+    // Остановка автоматического переключения при взаимодействии
+    document.querySelectorAll('.slide-arrow').forEach(arrow => {
+        arrow.addEventListener('click', () => {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+    });
+    
+    // Переключение слайдов с клавиатуры
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+    });
+    
+    // Переключение темы
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const themeIcon = document.querySelector('.theme-icon');
+    
+    // Проверяем сохраненную тему
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-theme');
         themeIcon.textContent = '🌕';
     } else {
-        localStorage.setItem('theme', 'light');
         themeIcon.textContent = '🌑';
     }
-});
-
-const logo = document.querySelector('.logo');
-const navLinks = document.querySelector('.nav-links');
-
-logo.addEventListener('click', function(e) {
-    if (window.innerWidth <= 768) {
-        e.preventDefault(); // Отменяем переход, если это мобильное меню
+    
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        
+        if (body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+            themeIcon.textContent = '🌕';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeIcon.textContent = '🌑';
+        }
+    });
+    
+    // Мобильное меню
+    mobileMenuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-    }
-    // На десктопах переход по ссылке произойдет автоматически
-});
-
-// Добавьте этот код в ваш script.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Проверяем мобильное устройство
+        mobileMenuToggle.classList.toggle('active');
+        
+        // Анимация иконки бургер-меню
+        const spans = mobileMenuToggle.querySelectorAll('span');
+        if (mobileMenuToggle.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '';
+            spans[2].style.transform = '';
+        }
+    });
+    
+    // Закрываем меню при клике на ссылку
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            spans[0].style.transform = '';
+            spans[1].style.opacity = '';
+            spans[2].style.transform = '';
+        });
+    });
+    
+    // Логотип для мобильного меню
+    logo.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+        }
+    });
+    
+    // Проверяем мобильное устройство для телеграм-ссылок
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     
-    // Обновляем все ссылки на бота
     document.querySelectorAll('a[href*="SaveAsBot"]').forEach(link => {
         if (isMobile) {
             link.href = 'tg://resolve?domain=SaveAsBot';
@@ -120,4 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link.href = 'https://t.me/SaveAsBot';
         }
     });
+    
+    // Инициализация первого слайда
+    showSlide(0);
 });
