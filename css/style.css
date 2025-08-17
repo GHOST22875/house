@@ -709,7 +709,7 @@ body.dark-theme {
 }
 
 .about-section {
-    padding: 80px 0;
+    padding: 80px 20px;
     background-color: #f9f9f9;
 }
 
@@ -717,6 +717,9 @@ body.dark-theme {
     display: flex;
     gap: 50px;
     align-items: center;
+    max-width: 1200px; /* Ограничиваем максимальную ширину контента */
+    margin: 0 auto; /* Центрируем контент */
+    padding: 0 40px; /* Добавляем отступы внутри контейнера */
 }
 
 .about-text {
@@ -975,6 +978,7 @@ body.dark-theme {
 @media (max-width: 992px) {
     .about-content {
         flex-direction: column;
+        padding: 0 20px;
     }
     
     .about-image {
