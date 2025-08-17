@@ -106,3 +106,18 @@ logo.addEventListener('click', () => {
         logo.classList.toggle('menu-opened');
     }
 });
+
+// Добавьте этот код в ваш script.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Проверяем мобильное устройство
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Обновляем все ссылки на бота
+    document.querySelectorAll('a[href*="SaveAsBot"]').forEach(link => {
+        if (isMobile) {
+            link.href = 'tg://resolve?domain=SaveAsBot';
+        } else {
+            link.href = 'https://t.me/SaveAsBot';
+        }
+    });
+});
