@@ -248,12 +248,12 @@
 .dark-theme .map-section h2,
 .dark-theme .faq-section h2,
 .dark-theme .faq-question {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .dark-theme .contact-text p,
 .dark-theme .faq-answer p {
-    color: #b0b0b0;
+    color: #e0e0e0 !important;
 }
 
 .dark-theme .form-group input,
