@@ -1963,3 +1963,302 @@ body.dark-theme {
 .dark-theme .project-card-link:hover .project-card {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
+
+/* Стили для модального окна проекта */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: 50px auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {opacity: 0; transform: translateY(-50px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    z-index: 2001;
+    transition: color 0.3s;
+}
+
+.close-modal:hover {
+    color: #000;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-gallery {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    padding: 15px;
+    overflow-x: auto;
+}
+
+.thumbnails {
+    display: flex;
+    gap: 10px;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border-color: #fff;
+}
+
+.project-details {
+    padding: 30px;
+}
+
+.project-specs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: #555;
+}
+
+.spec-value {
+    font-weight: 500;
+    color: #242b22;
+}
+
+.project-description, .project-features {
+    margin-bottom: 25px;
+}
+
+.project-description h3, .project-features h3 {
+    margin-bottom: 15px;
+    color: #242b22;
+    font-size: 1.4rem;
+}
+
+.project-description p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.project-features ul {
+    padding-left: 20px;
+}
+
+.project-features li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.modal-actions .btn {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-actions .btn.primary {
+    background-color: #242b22;
+    color: white;
+    border: none;
+}
+
+.modal-actions .btn.primary:hover {
+    background-color: #1a2119;
+}
+
+.modal-actions .btn.secondary {
+    background-color: transparent;
+    color: #242b22;
+    border: 2px solid #242b22;
+}
+
+.modal-actions .btn.secondary:hover {
+    background-color: #f0f0f0;
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 992px) {
+    .modal-content {
+        width: 95%;
+        margin: 30px auto;
+    }
+    
+    .project-gallery {
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 98%;
+        margin: 20px auto;
+    }
+    
+    .project-gallery {
+        height: 250px;
+    }
+    
+    .project-details {
+        padding: 20px;
+    }
+    
+    .project-specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .modal-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .project-gallery {
+        height: 200px;
+    }
+    
+    .thumbnail {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .close-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+    }
+}
+
+/* Темная тема для модального окна */
+.dark-theme .modal-content {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+.dark-theme .close-modal {
+    color: #aaa;
+}
+
+.dark-theme .close-modal:hover {
+    color: #fff;
+}
+
+.dark-theme .spec-label {
+    color: #b0b0b0;
+}
+
+.dark-theme .spec-value {
+    color: #ffffff;
+}
+
+.dark-theme .project-specs {
+    background-color: #3d3d3d;
+}
+
+.dark-theme .project-description p,
+.dark-theme .project-features li {
+    color: #cccccc;
+}
+
+.dark-theme .project-description h3,
+.dark-theme .project-features h3 {
+    color: #ffffff;
+}
+
+.dark-theme .modal-actions .btn.secondary:hover {
+    background-color: #3d3d3d;
+}
