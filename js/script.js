@@ -184,3 +184,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Инициализация первого слайда
     showSlide(0);
 });
+
+ // Фильтрация материалов
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const materialCards = document.querySelectorAll('.material-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Убираем активный класс у всех кнопок
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Добавляем активный класс текущей кнопке
+                    button.classList.add('active');
+                    
+                    // Получаем категорию для фильтрации
+                    const filterValue = button.getAttribute('data-filter');
+                    
+                    // Фильтруем карточки
+                    materialCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
