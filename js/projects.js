@@ -315,3 +315,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Обработчик для кнопки "Заказать этот проект"
+document.getElementById('order-project-btn').addEventListener('click', function() {
+    // Закрываем модальное окно
+    closeProjectModal();
+    
+    // Переходим на страницу контактов
+    window.location.href = 'contacts.html';
+    
+    // Альтернативный вариант с плавной прокруткой к форме на странице контактов
+    // window.location.href = 'contacts.html#contact-form';
+});
