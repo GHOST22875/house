@@ -194,11 +194,15 @@
         </div>
     </footer>
 
-        <!-- Модальное окно проекта -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-body">
+     <!-- Модальное окно проекта -->
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <!-- Заголовок над всем содержимым -->
+            <h2 id="modal-title" class="modal-project-title"></h2>
+            
+            <div class="modal-content-grid">
                 <div class="project-gallery">
                     <div class="main-image">
                         <img id="modal-main-img" src="" alt="Главное изображение проекта">
@@ -207,39 +211,56 @@
                         <div class="thumbnails"></div>
                     </div>
                 </div>
+                
                 <div class="project-details">
-                    <h2 id="modal-title"></h2>
-                    <div class="project-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Площадь:</span>
-                            <span id="modal-area" class="spec-value"></span>
+                    <!-- Спецификации проекта -->
+                    <div class="project-specs-modal">
+                        <div class="spec-item-modal">
+                            <span class="spec-label-modal">Площадь:</span>
+                            <span id="modal-area" class="spec-value-modal"></span>
                         </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Срок строительства:</span>
-                            <span id="modal-duration" class="spec-value"></span>
+                        
+                        <div class="spec-item-modal">
+                            <span class="spec-label-modal">Срок строительства:</span>
+                            <span id="modal-duration" class="spec-value-modal"></span>
                         </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Стоимость:</span>
-                            <span id="modal-price" class="spec-value"></span>
+                        
+                        <div class="spec-divider"></div>
+                        
+                        <div class="spec-item-modal highlight">
+                            <span class="spec-label-modal">Стоимость:</span>
+                            <span id="modal-price" class="spec-value-modal"></span>
                         </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Этажность:</span>
-                            <span id="modal-floors" class="spec-value"></span>
+                        
+                        <div class="spec-divider"></div>
+                        
+                        <div class="spec-item-modal">
+                            <span class="spec-label-modal">Этажность:</span>
+                            <span id="modal-floors" class="spec-value-modal"></span>
                         </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Технология:</span>
-                            <span id="modal-technology" class="spec-value"></span>
+                        
+                        <div class="spec-divider"></div>
+                        
+                        <div class="spec-item-modal">
+                            <span class="spec-label-modal">Технология:</span>
+                            <span id="modal-technology" class="spec-value-modal"></span>
                         </div>
                     </div>
+                    
+                    <!-- Описание проекта -->
                     <div class="project-description">
-                        <h3>Описание проекта</h3>
                         <p id="modal-description"></p>
                     </div>
+                    
+                    <div class="spec-divider"></div>
+                    
+                    <!-- Особенности проекта -->
                     <div class="project-features">
                         <h3>Особенности</h3>
                         <ul id="modal-features"></ul>
                     </div>
-                    <!-- В модальном окне заменим кнопку -->
+                    
+                    <!-- Кнопки действий -->
 <div class="modal-actions">
     <button class="btn primary" id="order-project-btn">Заказать этот проект</button>
 </div>
