@@ -2262,3 +2262,230 @@ body.dark-theme {
 .dark-theme .modal-actions .btn.secondary:hover {
     background-color: #3d3d3d;
 }
+
+
+/* Новые стили для модального окна проекта */
+.modal-project-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 0 0 30px 0;
+    color: #242b22;
+    padding: 0 20px;
+}
+
+.modal-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.project-specs-modal {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.spec-item-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+}
+
+.spec-item-modal.highlight {
+    background-color: #e8f5e9;
+    margin: 0 -25px;
+    padding: 12px 25px;
+    border-radius: 6px;
+}
+
+.spec-label-modal {
+    font-weight: 600;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.spec-value-modal {
+    font-weight: 500;
+    color: #242b22;
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+.spec-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 15px 0;
+}
+
+.project-description {
+    margin-bottom: 25px;
+}
+
+.project-description p {
+    line-height: 1.6;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.project-features {
+    margin-bottom: 30px;
+}
+
+.project-features h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #242b22;
+}
+
+.project-features ul {
+    padding-left: 20px;
+}
+
+.project-features li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #555;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+.project-features li:before {
+    content: "•";
+    color: #4caf50;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    font-size: 1.2rem;
+}
+
+.modal-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.modal-actions .btn.primary {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    background-color: #242b22;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-actions .btn.primary:hover {
+    background-color: #1a2119;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 992px) {
+    .modal-content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .modal-project-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .spec-label-modal,
+    .spec-value-modal {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-project-title {
+        font-size: 1.6rem;
+    }
+    
+    .project-specs-modal {
+        padding: 20px;
+    }
+    
+    .spec-item-modal.highlight {
+        margin: 0 -20px;
+        padding: 12px 20px;
+    }
+    
+    .project-features li {
+        font-size: 1rem;
+    }
+    
+    .modal-actions .btn.primary {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-project-title {
+        font-size: 1.4rem;
+        padding: 0 10px;
+    }
+    
+    .project-specs-modal {
+        padding: 15px;
+    }
+    
+    .spec-item-modal {
+        padding: 10px 0;
+    }
+    
+    .spec-item-modal.highlight {
+        margin: 0 -15px;
+        padding: 10px 15px;
+    }
+    
+    .spec-divider {
+        margin: 10px 0;
+    }
+}
+
+/* Темная тема для модального окна */
+.dark-theme .modal-project-title {
+    color: #ffffff;
+}
+
+.dark-theme .project-specs-modal {
+    background-color: #3d3d3d;
+}
+
+.dark-theme .spec-label-modal {
+    color: #b0b0b0;
+}
+
+.dark-theme .spec-value-modal {
+    color: #ffffff;
+}
+
+.dark-theme .spec-item-modal.highlight {
+    background-color: #2d4a2f;
+}
+
+.dark-theme .spec-divider {
+    background-color: #555;
+}
+
+.dark-theme .project-description p {
+    color: #cccccc;
+}
+
+.dark-theme .project-features h3 {
+    color: #ffffff;
+}
+
+.dark-theme .project-features li {
+    color: #cccccc;
+}
+
+.dark-theme .project-features li:before {
+    color: #4caf50;
+}
