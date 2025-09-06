@@ -1940,3 +1940,26 @@ body.dark-theme {
             color: #242b22;
             border-color: #e0e0e0;
         }
+
+/* Стили для ссылок проектов на главной странице */
+.project-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.project-card-link:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card-link:hover .project-card {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Анимация для темной темы */
+.dark-theme .project-card-link:hover .project-card {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
