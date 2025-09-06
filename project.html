@@ -201,8 +201,63 @@
             <p>&copy; 2023 EarthDom. Все права защищены.</p>
         </div>
     </footer>
+
+        <!-- Модальное окно проекта -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="project-gallery">
+                    <div class="main-image">
+                        <img id="modal-main-img" src="" alt="Главное изображение проекта">
+                    </div>
+                    <div class="thumbnail-container">
+                        <div class="thumbnails"></div>
+                    </div>
+                </div>
+                <div class="project-details">
+                    <h2 id="modal-title"></h2>
+                    <div class="project-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Площадь:</span>
+                            <span id="modal-area" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Срок строительства:</span>
+                            <span id="modal-duration" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Стоимость:</span>
+                            <span id="modal-price" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Этажность:</span>
+                            <span id="modal-floors" class="spec-value"></span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Технология:</span>
+                            <span id="modal-technology" class="spec-value"></span>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        <h3>Описание проекта</h3>
+                        <p id="modal-description"></p>
+                    </div>
+                    <div class="project-features">
+                        <h3>Особенности</h3>
+                        <ul id="modal-features"></ul>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn primary">Заказать этот проект</button>
+                        <button class="btn secondary">Скачать презентацию</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <script src="js/script.js"></script>
+    <script src="js/projects.js"></script>
  
 </body>
 </html>
