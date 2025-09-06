@@ -131,6 +131,51 @@ const projectsData = {
             "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
             "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
         ]
+    },
+
+    "premium": {
+        title: "Дом 'Премиум'",
+        area: "220 м²",
+        duration: "6 месяцев",
+        price: "от 4 100 000 ₽",
+        floors: "2 этажа + цокольный этаж",
+        technology: "Премиум каркасная технология",
+        description: "Элитный дом премиум-класса с уникальным дизайном и высококачественной отделкой. Просторные помещения, панорамное остекление и эксклюзивные материалы делают этот проект идеальным для требовательных клиентов.",
+        features: [
+            "Эксклюзивный архитектурный дизайн",
+            "Панорамное остекление с энергоэффективными стеклопакетами",
+            "Система 'умный дом' премиум-класса",
+            "Терраса с зоной отдыха и видом на природу",
+            "Отдельный гостевой домик на участке"
+        ],
+        images: [
+            "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        ]
+    },
+    "eko": {
+        title: "Дом 'Эко'",
+        area: "130 м²",
+        duration: "3 месяца",
+        price: "от 2 300 000 ₽",
+        floors: "1.5 этажа",
+        technology: "Экологичная каркасная технология",
+        description: "Экологичный дом, построенный с использованием натуральных и возобновляемых материалов. Проект ориентирован на минимальное воздействие на окружающую среду и максимальный комфорт для жильцов.",
+        features: [
+            "Натуральные и экологичные материалы",
+            "Система сбора и использования дождевой воды",
+            "Солнечные батареи для автономного энергоснабжения",
+            "Зеленая кровля с растительностью",
+            "Естественная вентиляция и пассивное солнечное отопление"
+        ],
+        images: [
+            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+            "https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+        ]
     }
 };
 
@@ -202,18 +247,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // Назначаем обработчики кликов на карточки проектов
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
-        // Создаем идентификатор на основе заголовка
-        const title = card.querySelector('h3').textContent;
-        let projectId = '';
-        
-        if (title.includes('Северный')) projectId = 'severny';
-        else if (title.includes('Лесной')) projectId = 'lesnoy';
-        else if (title.includes('Солнечный')) projectId = 'solnechny';
-        else if (title.includes('Уютный')) projectId = 'uyutny';
-        else if (title.includes('Современный')) projectId = 'sovremenny';
-        else if (title.includes('Классика')) projectId = 'klassika';
-        
-        card.addEventListener('click', () => openProjectModal(projectId));
+        card.addEventListener('click', function(e) {
+            // Предотвращаем открытие модального окна при клике на кнопку "Подробнее"
+            if (e.target.classList.contains('project-details-btn')) {
+                e.stopPropagation();
+                return;
+            }
+            
+            const projectId = this.getAttribute('data-project');
+            if (projectId) {
+                openProjectModal(projectId);
+            }
+        });
+    });
+    
+    // Назначаем обработчики на кнопки "Подробнее"
+    const detailButtons = document.querySelectorAll('.project-details-btn');
+    detailButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const projectCard = this.closest('.project-card');
+            const projectId = projectCard.getAttribute('data-project');
+            if (projectId) {
+                openProjectModal(projectId);
+            }
+        });
     });
     
     // Закрытие модального окна по кнопке
@@ -229,17 +286,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape') closeProjectModal();
     });
     
-    // Инициализация фильтров (если есть)
+    // Инициализация фильтров
     const filterButtons = document.querySelectorAll('.filter-btn');
     if (filterButtons.length > 0) {
         filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
+            button.addEventListener('click', function() {
                 // Убираем активный класс у всех кнопок
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 // Добавляем активный класс текущей кнопке
-                button.classList.add('active');
+                this.classList.add('active');
                 
-                const filterValue = button.getAttribute('data-filter');
+                const filterValue = this.getAttribute('data-filter');
                 const projectCards = document.querySelectorAll('.project-card');
                 
                 projectCards.forEach(card => {
