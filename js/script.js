@@ -170,122 +170,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Проверяем мобильное устройство для телеграм-ссылок
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    document.querySelectorAll('a[href*="SaveAsBot"]').forEach(link => {
-        if (isMobile) {
-            link.href = 'tg://resolve?domain=SaveAsBot';
-        } else {
-            link.href = 'https://t.me/SaveAsBot';
-        }
-    });
-    
     // Инициализация первого слайда
     showSlide(0);
 });
 
- // Фильтрация материалов
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const materialCards = document.querySelectorAll('.material-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Убираем активный класс у всех кнопок
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Добавляем активный класс текущей кнопке
-                    button.classList.add('active');
-                    
-                    // Получаем категорию для фильтрации
-                    const filterValue = button.getAttribute('data-filter');
-                    
-                    // Фильтруем карточки
-                    materialCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-        });
-
 // Фильтрация проектов
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectCards = document.querySelectorAll('.project-card');
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Убираем активный класс у всех кнопок
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Добавляем активный класс текущей кнопке
+            button.classList.add('active');
             
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Убираем активный класс у всех кнопок
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Добавляем активный класс текущей кнопке
-                    button.classList.add('active');
-                    
-                    const filterValue = button.getAttribute('data-filter');
-                    
-                    projectCards.forEach(card => {
-                        if (filterValue === 'all') {
-                            card.style.display = 'block';
-                        } else {
-                            const cardCategories = card.getAttribute('data-category').split(' ');
-                            if (cardCategories.includes(filterValue)) {
-                                card.style.display = 'block';
-                            } else {
-                                card.style.display = 'none';
-                            }
-                        }
-                    });
-                });
-            });
+            const filterValue = button.getAttribute('data-filter');
             
-            // Добавляем класс active для текущей страницы в навигации
-            const currentPage = window.location.pathname.split('/').pop();
-            const navLinks = document.querySelectorAll('.nav-links a');
-            
-            navLinks.forEach(link => {
-                const linkPage = link.getAttribute('href');
-                if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-                    link.classList.add('active');
+            projectCards.forEach(card => {
+                if (filterValue === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const cardCategories = card.getAttribute('data-category').split(' ');
+                    if (cardCategories.includes(filterValue)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
                 }
             });
         });
-
-        // Фильтрация материалов
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const materialCards = document.querySelectorAll('.material-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Убираем активный класс у всех кнопок
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Добавляем активный класс текущей кнопке
-                    this.classList.add('active');
-                    
-                    const filterValue = this.getAttribute('data-filter');
-                    
-                    materialCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-type') === filterValue) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Обработка формы
-            const contactForm = document.querySelector('.contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-                    this.reset();
-                });
-            }
-        });
-    </script>
+    });
+    
+    // Добавляем класс active для текущей страницы в навигации
+    const currentPage = window.location.pathname.split('/').pop();
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+});
