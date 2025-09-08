@@ -92,72 +92,80 @@ const projectsData = {
     }
 };
 
-// Функция открытия модального окна
-function openProjectModal(projectTitle) {
-    const project = projectsData[projectTitle];
-    if (!project) return;
-
-    // Заполняем модальное окно данными
-    document.getElementById('modalProjectImage').src = project.image;
-    document.getElementById('modalProjectTitle').textContent = projectTitle;
-    document.getElementById('modalProjectArea').textContent = project.area;
-    document.getElementById('modalProjectTime').textContent = project.time;
-    document.getElementById('modalProjectPrice').textContent = project.price;
-    document.getElementById('modalProjectDescription').textContent = project.description;
+// Функция для открытия модального окна проекта
+function openProjectModal(projectCard) {
+    // Получаем данные из карточки проекта
+    const title = projectCard.querySelector('h3').textContent;
+    const area = projectCard.querySelector('p:nth-child(2)').textContent;
+    const time = projectCard.querySelector('p:nth-child(3)').textContent;
+    const price = projectCard.querySelector('.project-price').textContent;
+    const imageUrl = projectCard.querySelector('.project-img').style.backgroundImage.slice(5, -2);
     
-    // Заполняем особенности
+    // Заполняем модальное окно данными
+    document.getElementById('modalProjectImage').src = imageUrl;
+    document.getElementById('modalProjectTitle').textContent = title;
+    document.getElementById('modalProjectArea').textContent = area.replace('Площадь: ', '');
+    document.getElementById('modalProjectTime').textContent = time.replace('Срок строительства: ', '');
+    document.getElementById('modalProjectPrice').textContent = price;
+    
+    // Добавляем описание и особенности (можно расширить в будущем)
+    document.getElementById('modalProjectDescription').textContent = `Подробное описание проекта "${title}". Этот дом сочетает в себе современные технологии строительства и продуманную планировку для комфортного проживания.`;
+    
+    // Очищаем и добавляем особенности
     const featuresList = document.getElementById('modalProjectFeatures');
     featuresList.innerHTML = '';
-    project.features.forEach(feature => {
+    
+    const features = [
+        'Качественные строительные материалы',
+        'Энергоэффективные решения',
+        'Индивидуальный подход к планировке',
+        'Гарантия на работы 5 лет'
+    ];
+    
+    features.forEach(feature => {
         const li = document.createElement('li');
         li.textContent = feature;
         featuresList.appendChild(li);
     });
-
+    
     // Показываем модальное окно
     document.getElementById('projectModal').style.display = 'block';
-    document.body.classList.add('modal-open');
+    document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
 }
 
-// Функция закрытия модального окна
+// Закрытие модального окна
 function closeProjectModal() {
     document.getElementById('projectModal').style.display = 'none';
-    document.body.classList.remove('modal-open');
+    document.body.style.overflow = 'auto'; // Возвращаем прокрутку страницы
 }
 
-// Обработчики событий для модального окна
+// Обработчики событий после загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('projectModal');
-    const closeBtn = document.querySelector('.modal-close');
-    
-    // Закрытие по клику на крестик
-    closeBtn.addEventListener('click', closeProjectModal);
-    
-    // Закрытие по клику вне модального окна
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeProjectModal();
-        }
-    });
-    
-    // Закрытие по клавише Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === 'block') {
-            closeProjectModal();
-        }
-    });
-    
-    // Добавляем обработчики клика на карточки проектов
+    // Добавляем обработчики клика на все карточки проектов
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
-        card.style.cursor = 'pointer';
         card.addEventListener('click', function() {
-            const projectTitle = this.querySelector('h3').textContent;
-            openProjectModal(projectTitle);
+            openProjectModal(this);
         });
     });
+    
+    // Закрытие модального окна при клике на крестик
+    document.querySelector('.modal-close').addEventListener('click', closeProjectModal);
+    
+    // Закрытие модального окна при клике вне его области
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeProjectModal();
+        }
+    });
+    
+    // Закрытие модального окна при нажатии Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('projectModal').style.display === 'block') {
+            closeProjectModal();
+        }
+    });
 });
-
 // Фильтрация проектов
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
