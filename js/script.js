@@ -15,49 +15,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Слайдер
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    
-    function showSlide(n) {
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
-    
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-    
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-    
-    // Автоматическое переключение слайдов
-    let slideInterval = setInterval(nextSlide, 5000);
-    
-    // Остановка автоматического переключения при взаимодействии
-    document.querySelectorAll('.slide-arrow').forEach(arrow => {
-        arrow.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        });
+    // Слайдер - исправленная версия
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(n) {
+    slides.forEach(slide => {
+        slide.classList.remove('active');
     });
-    
-    // Переключение слайдов с клавиатуры
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            prevSlide();
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        } else if (e.key === 'ArrowRight') {
-            nextSlide();
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
-        }
+    currentSlide = (n + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+function prevSlide() {
+    showSlide(currentSlide - 1);
+}
+
+function nextSlide() {
+    showSlide(currentSlide + 1);
+}
+
+// Автоматическое переключение слайдов
+let slideInterval = setInterval(nextSlide, 5000);
+
+// Остановка автоматического переключения при взаимодействии
+document.querySelectorAll('.slide-arrow').forEach(arrow => {
+    arrow.addEventListener('click', () => {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
     });
+});
+
+// Переключение слайдов с клавиатуры
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') {
+        prevSlide();
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    } else if (e.key === 'ArrowRight') {
+        nextSlide();
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+});
+
+// Инициализация первого слайда
+showSlide(0);
     
     // Переключение темы
     const themeToggle = document.getElementById('theme-toggle');
