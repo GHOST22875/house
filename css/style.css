@@ -419,12 +419,6 @@ body.dark-theme {
     color: #000000 !important;
 }
 
-/* Или если нужен более контрастный цвет на темном фоне */
-.dark-theme .terrace-section-title {
-    color: #ffffff !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-
 .dark-theme .project-card {
     background-color: #2d2d2d;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
