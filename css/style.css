@@ -2087,3 +2087,769 @@ body.dark-theme {
         height: 200px;
     }
 }
+
+/* Стили для страницы быстровозводимых домов */
+.bv-hero {
+    height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.bv-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bv-hero-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.bv-advantages {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.advantage-card {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.advantage-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.advantage-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.bv-technologies {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.technologies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.technology-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technology-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tech-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.tech-content {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.tech-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.tech-content p {
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.tech-features {
+    list-style: none;
+}
+
+.tech-features li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+}
+
+.tech-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #242b22;
+    font-weight: bold;
+}
+
+.bv-stages {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.stages-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto 0;
+}
+
+.stages-timeline:before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #242b22;
+}
+
+.stage {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.stage-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #242b22;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 30px;
+    z-index: 1;
+}
+
+.stage-content {
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+.stage-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.stage-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.bv-projects {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.bv-projects .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.bv-projects .project-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    transition: box-shadow 0.3s ease;
+}
+
+.bv-projects .project-img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.bv-projects .project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+.bv-projects .project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.bv-projects .project-card:hover .project-info {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.bv-projects .project-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.bv-projects .project-info p {
+    margin-bottom: 8px;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.bv-cta {
+    padding: 80px 0;
+    background-color: #242b22;
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: #242b22;
+}
+
+/* Темная тема */
+.dark-theme .bv-advantages,
+.dark-theme .bv-stages {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .advantage-card,
+.dark-theme .technology-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .advantage-card h3,
+.dark-theme .tech-content h3,
+.dark-theme .stage-content h3 {
+    color: #ffffff;
+}
+
+.dark-theme .advantage-card p,
+.dark-theme .tech-content p,
+.dark-theme .stage-content p,
+.dark-theme .tech-features li {
+    color: #b0b0b0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .bv-hero {
+        height: 50vh;
+        margin-top: 60px;
+    }
+    
+    .bv-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .bv-hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .stages-timeline:before {
+        left: 25px;
+    }
+    
+    .stage-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-right: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-outline {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .technologies-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .technology-card {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .bv-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .bv-hero-content p {
+        font-size: 1rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-content p {
+        font-size: 1rem;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+}/* Стили для страницы быстровозводимых домов */
+.bv-hero {
+    height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.bv-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.bv-hero-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.bv-advantages {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.advantage-card {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.advantage-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.advantage-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.bv-technologies {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.technologies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.technology-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technology-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tech-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.tech-content {
+    padding: 30px;
+    flex-grow: 1;
+}
+
+.tech-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.tech-content p {
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.tech-features {
+    list-style: none;
+}
+
+.tech-features li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+}
+
+.tech-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #242b22;
+    font-weight: bold;
+}
+
+.bv-stages {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.stages-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 50px auto 0;
+}
+
+.stages-timeline:before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #242b22;
+}
+
+.stage {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.stage-number {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #242b22;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 30px;
+    z-index: 1;
+}
+
+.stage-content {
+    flex-grow: 1;
+    padding-bottom: 20px;
+}
+
+.stage-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.stage-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.bv-projects {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.bv-projects .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.bv-projects .project-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    transition: box-shadow 0.3s ease;
+}
+
+.bv-projects .project-img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.bv-projects .project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+.bv-projects .project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.bv-projects .project-card:hover .project-info {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.bv-projects .project-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.bv-projects .project-info p {
+    margin-bottom: 8px;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.bv-cta {
+    padding: 80px 0;
+    background-color: #242b22;
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-outline:hover {
+    background-color: white;
+    color: #242b22;
+}
+
+/* Темная тема */
+.dark-theme .bv-advantages,
+.dark-theme .bv-stages {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .advantage-card,
+.dark-theme .technology-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .advantage-card h3,
+.dark-theme .tech-content h3,
+.dark-theme .stage-content h3 {
+    color: #ffffff;
+}
+
+.dark-theme .advantage-card p,
+.dark-theme .tech-content p,
+.dark-theme .stage-content p,
+.dark-theme .tech-features li {
+    color: #b0b0b0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .bv-hero {
+        height: 50vh;
+        margin-top: 60px;
+    }
+    
+    .bv-hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .bv-hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .stages-timeline:before {
+        left: 25px;
+    }
+    
+    .stage-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        margin-right: 20px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-outline {
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 992px) {
+    .technologies-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .technology-card {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .bv-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .bv-hero-content p {
+        font-size: 1rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+    
+    .cta-content p {
+        font-size: 1rem;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+}
