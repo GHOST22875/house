@@ -1165,7 +1165,7 @@ body.dark-theme {
 /* Стили для страницы услуг */
         .services-hero {
             height: 50vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/736x/02/d5/ca/02d5cadb69e8eadcd240762f7db6b35b.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/1200x/52/b9/be/52b9bed2e46f3ab66b64d54590a2b1b4.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
