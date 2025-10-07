@@ -1,6 +1,6 @@
 /* Герой секция контактов */
 .contacts-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/contacts-bg.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/736x/91/05/b6/9105b6e19ab9eaa20020040818361d9a.jpg');
     background-size: cover;
     background-position: center;
     color: white;
