@@ -2639,3 +2639,222 @@ body.dark-theme {
         grid-template-columns: 1fr;
     }
 }
+
+/* Добавьте этот код в конец файла style.css */
+
+/* Темная тема для страницы модульных домов */
+.dark-theme .bv-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/1200x/e4/e2/3a/e4e23ad9bca135a2b337349d6d41f617.jpg');
+}
+
+.dark-theme .assembly-section,
+.dark-theme .warmth-section,
+.dark-theme .completed-projects,
+.dark-theme .guarantee-section,
+.dark-theme .consultation-section {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .savings-section,
+.dark-theme .technology-section,
+.dark-theme .ready-houses,
+.dark-theme .production-section,
+.dark-theme .delivery-section,
+.dark-theme .estimate-section,
+.dark-theme .faq-section {
+    background-color: #121212;
+}
+
+/* Заголовки и текст */
+.dark-theme .bv-hero-content h1,
+.dark-theme .assembly-section h2,
+.dark-theme .savings-section h2,
+.dark-theme .technology-section h2,
+.dark-theme .warmth-section h2,
+.dark-theme .ready-houses h2,
+.dark-theme .production-section h2,
+.dark-theme .completed-projects h2,
+.dark-theme .delivery-section h2,
+.dark-theme .guarantee-section h2,
+.dark-theme .estimate-section h2,
+.dark-theme .faq-section h2,
+.dark-theme .consultation-section h2 {
+    color: #ffffff;
+}
+
+.dark-theme .hero-description,
+.dark-theme .section-subtitle,
+.dark-theme .feature p,
+.dark-theme .assembly-feature p,
+.dark-theme .saving-item p,
+.dark-theme .warmth-content p,
+.dark-theme .warmth-feature p,
+.dark-theme .delivery-section p,
+.dark-theme .delivery-feature p,
+.dark-theme .guarantee-item p,
+.dark-theme .estimate-feature p,
+.dark-theme .faq-item p,
+.dark-theme .consultation-process p {
+    color: #e0e0e0;
+}
+
+/* Карточки и элементы */
+.dark-theme .feature,
+.dark-theme .assembly-feature,
+.dark-theme .saving-item,
+.dark-theme .warmth-feature,
+.dark-theme .delivery-feature,
+.dark-theme .estimate-feature {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
+.dark-theme .house-card,
+.dark-theme .project-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .house-info h3,
+.dark-theme .project-info h3 {
+    color: #ffffff;
+}
+
+.dark-theme .area,
+.dark-theme .location,
+.dark-theme .client-location {
+    color: #b0b0b0;
+}
+
+/* Технологии и спецификации */
+.dark-theme .tech-specs li,
+.dark-theme .advantages li {
+    border-bottom-color: #444;
+    color: #e0e0e0;
+}
+
+.dark-theme .finishing-type h4,
+.dark-theme .detail h4 {
+    color: #ffffff;
+}
+
+.dark-theme .note {
+    color: #888;
+}
+
+/* Смета */
+.dark-theme .estimate-item,
+.dark-theme .estimate-total {
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+.dark-theme .estimate-note {
+    color: #888;
+}
+
+/* Формы */
+.dark-theme .consultation-form,
+.dark-theme .faq-form {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
+.dark-theme .consult-form input,
+.dark-theme .question-form textarea,
+.dark-theme .question-form input {
+    background-color: #1e1e1e;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+.dark-theme .consult-form input::placeholder,
+.dark-theme .question-form textarea::placeholder,
+.dark-theme .question-form input::placeholder {
+    color: #888;
+}
+
+/* Цены и акценты */
+.dark-theme .price,
+.dark-theme .saving-amount,
+.dark-theme .precision-value,
+.dark-theme .stage-percent {
+    color: #4CAF50;
+}
+
+.dark-theme .hero-subtitle {
+    color: #FFD700;
+}
+
+.dark-theme .feature h3 {
+    color: #4CAF50;
+}
+
+/* Кнопки в темной теме */
+.dark-theme .btn-outline {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.dark-theme .btn-outline:hover {
+    background-color: #4CAF50;
+    color: #121212;
+}
+
+/* Особые исправления для заголовков проектов */
+.dark-theme .terrace-section-title {
+    color: #ffffff !important;
+}
+
+/* Границы и разделители */
+.dark-theme .tech-specs li:before {
+    color: #4CAF50;
+}
+
+.dark-theme .advantages li:before {
+    color: #4CAF50;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .dark-theme .nav-links {
+        background-color: #1e1e1e;
+    }
+    
+    .dark-theme .nav-links a {
+        color: #e0e0e0;
+    }
+    
+    .dark-theme .nav-links a:hover {
+        color: #ffffff;
+    }
+}
+
+/* Улучшение читаемости текста */
+.dark-theme .faq-item h3,
+.dark-theme .consultation-process h3 {
+    color: #ffffff;
+}
+
+.dark-theme .consultation-process li,
+.dark-theme .consultation-process ul li {
+    color: #e0e0e0;
+}
+
+/* Подвал в темной теме */
+.dark-theme footer {
+    background-color: #000000;
+}
+
+.dark-theme .footer-column p,
+.dark-theme .footer-column ul li {
+    color: #b0b0b0;
+}
+
+.dark-theme .footer-column a {
+    color: #e0e0e0;
+}
+
+.dark-theme .footer-column a:hover {
+    color: #ffffff;
+}
