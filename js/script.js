@@ -16,115 +16,96 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Слайдер - исправленная версия
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
 
-function showSlide(n) {
-    slides.forEach(slide => {
-        slide.classList.remove('active');
-    });
-    currentSlide = (n + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-}
-
-function prevSlide() {
-    showSlide(currentSlide - 1);
-}
-
-function nextSlide() {
-    showSlide(currentSlide + 1);
-}
-
-// Автоматическое переключение слайдов
-let slideInterval = setInterval(nextSlide, 5000);
-
-// Остановка автоматического переключения при взаимодействии
-document.querySelectorAll('.slide-arrow').forEach(arrow => {
-    arrow.addEventListener('click', () => {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    });
-});
-
-// Переключение слайдов с клавиатуры
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowLeft') {
-        prevSlide();
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    } else if (e.key === 'ArrowRight') {
-        nextSlide();
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
+    function showSlide(n) {
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
     }
-});
 
-// Инициализация первого слайда
-showSlide(0);
-    
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    // Автоматическое переключение слайдов
+    let slideInterval = setInterval(nextSlide, 5000);
+
+    // Инициализация первого слайда
+    showSlide(0);
+
     // Переключение темы
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const themeIcon = document.querySelector('.theme-icon');
     
-    // Проверяем сохраненную тему
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-theme');
-        themeIcon.textContent = '🌕';
-    } else {
-        themeIcon.textContent = '🌑';
-    }
-    
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        
-        if (body.classList.contains('dark-theme')) {
-            localStorage.setItem('theme', 'dark');
+    if (themeToggle && themeIcon) {
+        // Проверяем сохраненную тему
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-theme');
             themeIcon.textContent = '🌕';
         } else {
-            localStorage.setItem('theme', 'light');
             themeIcon.textContent = '🌑';
         }
-    });
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = '🌕';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = '🌑';
+            }
+        });
+    }
     
     // Мобильное меню - исправленная версия
-    mobileMenuToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        navLinks.classList.toggle('active');
-        mobileMenuToggle.classList.toggle('active');
-        
-        // Блокируем скролл тела при открытом меню
-        if (navLinks.classList.contains('active')) {
-            document.body.classList.add('menu-open');
-        } else {
-            document.body.classList.remove('menu-open');
-        }
-        
-        // Анимация иконки бургер-меню
-        const spans = mobileMenuToggle.querySelectorAll('span');
-        if (mobileMenuToggle.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            spans[0].style.transform = '';
-            spans[1].style.opacity = '';
-            spans[2].style.transform = '';
-        }
-    });
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            
+            // Блокируем скролл тела при открытом меню
+            if (navLinks.classList.contains('active')) {
+                document.body.classList.add('menu-open');
+            } else {
+                document.body.classList.remove('menu-open');
+            }
+            
+            // Анимация иконки бургер-меню
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            if (mobileMenuToggle.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
+        });
+    }
     
     // Закрываем меню при клике на ссылку
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            document.body.classList.remove('menu-open');
-            
-            const spans = mobileMenuToggle.querySelectorAll('span');
-            spans[0].style.transform = '';
-            spans[1].style.opacity = '';
-            spans[2].style.transform = '';
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
         });
     });
     
@@ -159,95 +140,60 @@ showSlide(0);
     });
     
     // Логотип для мобильного меню
-    logo.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            e.preventDefault();
-            navLinks.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
-            
-            if (navLinks.classList.contains('active')) {
-                document.body.classList.add('menu-open');
-            } else {
-                document.body.classList.remove('menu-open');
+    if (logo) {
+        logo.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                navLinks.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                
+                if (navLinks.classList.contains('active')) {
+                    document.body.classList.add('menu-open');
+                } else {
+                    document.body.classList.remove('menu-open');
+                }
             }
-        }
-    });
-    
-    // Инициализация первого слайда
-    showSlide(0);
-});
+        });
+    }
 
-// Фильтрация проектов
-document.addEventListener('DOMContentLoaded', function() {
+    // Фильтрация проектов (если есть на странице)
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Убираем активный класс у всех кнопок
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Добавляем активный класс текущей кнопке
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filterValue === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    const cardCategories = card.getAttribute('data-category').split(' ');
-                    if (cardCategories.includes(filterValue)) {
+    if (filterButtons.length > 0 && projectCards.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Убираем активный класс у всех кнопок
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Добавляем активный класс текущей кнопке
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    if (filterValue === 'all') {
                         card.style.display = 'block';
                     } else {
-                        card.style.display = 'none';
+                        const cardCategories = card.getAttribute('data-category').split(' ');
+                        if (cardCategories.includes(filterValue)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
                     }
-                }
+                });
             });
         });
-    });
+    }
     
     // Добавляем класс active для текущей страницы в навигации
     const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const navLinksAll = document.querySelectorAll('.nav-links a');
     
-    navLinks.forEach(link => {
+    navLinksAll.forEach(link => {
         const linkPage = link.getAttribute('href');
         if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
             link.classList.add('active');
         }
     });
 });
-
-// theme.js
-function initTheme() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const themeIcon = document.querySelector('.theme-icon');
-    
-    if (!themeToggle || !themeIcon) return;
-    
-    // Проверяем сохраненную тему
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'dark') {
-        body.classList.add('dark-theme');
-        themeIcon.textContent = '🌕';
-    } else {
-        themeIcon.textContent = '🌑';
-    }
-    
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        
-        if (body.classList.contains('dark-theme')) {
-            localStorage.setItem('theme', 'dark');
-            themeIcon.textContent = '🌕';
-        } else {
-            localStorage.setItem('theme', 'light');
-            themeIcon.textContent = '🌑';
-        }
-    });
-}
-
-// Инициализируем при загрузке DOM
-document.addEventListener('DOMContentLoaded', initTheme);
-
