@@ -5,68 +5,77 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     const logo = document.querySelector('.logo');
     
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-    
-    // Слайдер - исправленная версия
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-
-    function showSlide(n) {
-        slides.forEach(slide => {
-            slide.classList.remove('active');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
-        currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].classList.add('active');
+    }
+    
+    // Слайдер - только для главной страницы
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        // Автоматическое переключение слайдов
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        // Инициализация первого слайда
+        showSlide(0);
     }
 
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-
-    // Автоматическое переключение слайдов
-    let slideInterval = setInterval(nextSlide, 5000);
-
-    // Инициализация первого слайда
-    showSlide(0);
-
-    // Переключение темы
+    // Переключение темы - ДОЛЖНО РАБОТАТЬ НА ВСЕХ СТРАНИЦАХ
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
     const themeIcon = document.querySelector('.theme-icon');
     
-    if (themeToggle && themeIcon) {
+    function initTheme() {
         // Проверяем сохраненную тему
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme === 'dark') {
             body.classList.add('dark-theme');
-            themeIcon.textContent = '🌕';
+            if (themeIcon) themeIcon.textContent = '🌕';
         } else {
-            themeIcon.textContent = '🌑';
+            if (themeIcon) themeIcon.textContent = '🌑';
         }
-        
+    }
+    
+    // Инициализируем тему сразу
+    initTheme();
+    
+    if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-theme');
             
             if (body.classList.contains('dark-theme')) {
                 localStorage.setItem('theme', 'dark');
-                themeIcon.textContent = '🌕';
+                if (themeIcon) themeIcon.textContent = '🌕';
             } else {
                 localStorage.setItem('theme', 'light');
-                themeIcon.textContent = '🌑';
+                if (themeIcon) themeIcon.textContent = '🌑';
             }
         });
     }
     
-    // Мобильное меню - исправленная версия
-    if (mobileMenuToggle) {
+    // Мобильное меню
+    if (mobileMenuToggle && navLinks) {
         mobileMenuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
             navLinks.classList.toggle('active');
@@ -96,53 +105,59 @@ document.addEventListener('DOMContentLoaded', function() {
     // Закрываем меню при клике на ссылку
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
+            if (navLinks && navLinks.classList.contains('active')) {
                 navLinks.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
+                if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
                 document.body.classList.remove('menu-open');
                 
-                const spans = mobileMenuToggle.querySelectorAll('span');
-                spans[0].style.transform = '';
-                spans[1].style.opacity = '';
-                spans[2].style.transform = '';
+                if (mobileMenuToggle) {
+                    const spans = mobileMenuToggle.querySelectorAll('span');
+                    spans[0].style.transform = '';
+                    spans[1].style.opacity = '';
+                    spans[2].style.transform = '';
+                }
             }
         });
     });
     
     // Закрываем меню при клике вне его
     document.addEventListener('click', (e) => {
-        if (navLinks.classList.contains('active') && 
+        if (navLinks && navLinks.classList.contains('active') && 
             !navLinks.contains(e.target) && 
-            !mobileMenuToggle.contains(e.target)) {
+            (!mobileMenuToggle || !mobileMenuToggle.contains(e.target))) {
             navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
+            if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
             document.body.classList.remove('menu-open');
             
-            const spans = mobileMenuToggle.querySelectorAll('span');
-            spans[0].style.transform = '';
-            spans[1].style.opacity = '';
-            spans[2].style.transform = '';
+            if (mobileMenuToggle) {
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
         }
     });
     
     // Закрываем меню при изменении ориентации или размера
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+        if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
+            if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
             document.body.classList.remove('menu-open');
             
-            const spans = mobileMenuToggle.querySelectorAll('span');
-            spans[0].style.transform = '';
-            spans[1].style.opacity = '';
-            spans[2].style.transform = '';
+            if (mobileMenuToggle) {
+                const spans = mobileMenuToggle.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '';
+                spans[2].style.transform = '';
+            }
         }
     });
     
     // Логотип для мобильного меню
     if (logo) {
         logo.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 768 && navLinks && mobileMenuToggle) {
                 e.preventDefault();
                 navLinks.classList.toggle('active');
                 mobileMenuToggle.classList.toggle('active');
@@ -156,15 +171,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Фильтрация проектов (если есть на странице)
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    // Фильтрация проектов (для страницы проектов)
+    const projectFilterButtons = document.querySelectorAll('.projects-filter .filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
-    if (filterButtons.length > 0 && projectCards.length > 0) {
-        filterButtons.forEach(button => {
+    if (projectFilterButtons.length > 0 && projectCards.length > 0) {
+        projectFilterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 // Убираем активный класс у всех кнопок
-                filterButtons.forEach(btn => btn.classList.remove('active'));
+                projectFilterButtons.forEach(btn => btn.classList.remove('active'));
                 // Добавляем активный класс текущей кнопке
                 button.classList.add('active');
                 
@@ -185,13 +200,46 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Фильтрация материалов (для страницы материалов)
+    const materialFilterButtons = document.querySelectorAll('.materials-filter .filter-btn');
+    const materialCards = document.querySelectorAll('.material-card');
+    
+    if (materialFilterButtons.length > 0 && materialCards.length > 0) {
+        materialFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Убираем активный класс у всех кнопок
+                materialFilterButtons.forEach(btn => btn.classList.remove('active'));
+                // Добавляем активный класс текущей кнопке
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                materialCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (cardCategory === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    }
     
     // Добавляем класс active для текущей страницы в навигации
-    const currentPage = window.location.pathname.split('/').pop();
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinksAll = document.querySelectorAll('.nav-links a');
     
     navLinksAll.forEach(link => {
-        const linkPage = link.getAttribute('href');
+        const linkHref = link.getAttribute('href');
+        // Убираем слеш в начале если есть
+        const linkPage = linkHref.startsWith('/') ? linkHref.substring(1) : linkHref;
+        
         if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
             link.classList.add('active');
         }
