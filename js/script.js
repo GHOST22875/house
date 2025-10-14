@@ -1,60 +1,4 @@
-// Функционал для FAQ (работает на всех страницах)
-function initFAQ() {
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    if (faqItems.length > 0) {
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
-            const toggle = item.querySelector('.faq-toggle');
-            
-            // Закрываем все ответы при загрузке
-            if (answer) {
-                answer.style.maxHeight = '0';
-                answer.style.opacity = '0';
-            }
-            
-            if (question && answer) {
-                question.addEventListener('click', () => {
-                    const isOpen = answer.style.maxHeight !== '0px' && answer.style.maxHeight !== '';
-                    
-                    // Закрываем все другие открытые вопросы
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            const otherAnswer = otherItem.querySelector('.faq-answer');
-                            const otherToggle = otherItem.querySelector('.faq-toggle');
-                            if (otherAnswer) {
-                                otherAnswer.style.maxHeight = '0';
-                                otherAnswer.style.opacity = '0';
-                            }
-                            if (otherToggle) {
-                                otherToggle.textContent = '+';
-                                otherToggle.style.transform = 'rotate(0deg)';
-                            }
-                        }
-                    });
-                    
-                    // Переключаем текущий вопрос
-                    if (isOpen) {
-                        answer.style.maxHeight = '0';
-                        answer.style.opacity = '0';
-                        if (toggle) {
-                            toggle.textContent = '+';
-                            toggle.style.transform = 'rotate(0deg)';
-                        }
-                    } else {
-                        answer.style.maxHeight = answer.scrollHeight + 'px';
-                        answer.style.opacity = '1';
-                        if (toggle) {
-                            toggle.textContent = '−';
-                            toggle.style.transform = 'rotate(180deg)';
-                        }
-                    }
-                });
-            }
-        });
-    }
-}
+
 
 // Инициализируем FAQ при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
@@ -304,8 +248,4 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.add('active');
         }
     });
-});
-
-                          // Добавляем инициализацию FAQ
-    initFAQ();
 });
