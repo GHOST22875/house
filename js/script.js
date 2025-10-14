@@ -1,8 +1,4 @@
 
-
-// Инициализируем FAQ при загрузке страницы
-document.addEventListener('DOMContentLoaded', function() {
-document.addEventListener('DOMContentLoaded', function() {
     // Навигационное меню
     const navbar = document.getElementById('navbar');
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
