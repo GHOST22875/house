@@ -2858,3 +2858,128 @@ body.dark-theme {
 .dark-theme .footer-column a:hover {
     color: #ffffff;
 }
+
+/* Стили для секции преимуществ */
+.advantages-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+}
+
+.advantage-card {
+    text-align: center;
+    padding: 40px 25px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.advantage-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.advantage-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #242b22;
+    font-weight: 600;
+}
+
+.advantage-card p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.cookies-notice {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #242b22;
+}
+
+.cookies-notice p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+    font-style: italic;
+}
+
+/* Темная тема для секции преимуществ */
+.dark-theme .advantages-section {
+    background-color: #1a1a1a;
+}
+
+.dark-theme .advantage-card {
+    background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 100%);
+    border: 1px solid #444;
+}
+
+.dark-theme .advantage-card:hover {
+    background: linear-gradient(135deg, #3d3d3d 0%, #4d4d4d 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .advantage-card h3 {
+    color: #ffffff;
+}
+
+.dark-theme .advantage-card p {
+    color: #b0b0b0;
+}
+
+.dark-theme .cookies-notice {
+    background-color: #2d2d2d;
+    border-left-color: #4CAF50;
+}
+
+.dark-theme .cookies-notice p {
+    color: #888;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .advantage-card {
+        padding: 30px 20px;
+    }
+    
+    .advantage-icon {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .advantages-section {
+        padding: 60px 0;
+    }
+    
+    .advantage-card {
+        padding: 25px 15px;
+    }
+    
+    .advantage-card h3 {
+        font-size: 1.3rem;
+    }
+}
