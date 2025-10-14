@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function() {
 
     // Навигационное меню
     const navbar = document.getElementById('navbar');
