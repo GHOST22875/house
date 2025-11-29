@@ -118,8 +118,7 @@ const projectsData = {
         images: [
             'https://i.pinimg.com/736x/5a/8d/3c/5a8d3c0b6d8c8d0f0b8e8c8a8e8c8a8e8.jpg',
             'https://i.pinimg.com/736x/9c/8a/8e/9c8a8e8c8a8e8c8a8e8c8a8e8c8a8e8c8.jpg',
-            'https://i.pinimg.com/736x/7b/1a/9c/7b1a9c8e8c8a8e8c8a8e8c8a8e8c8a8e8.jpg',
-            'https://i.pinimg.com/1200x/00/8f/20/008f20405aaea27836e9b66e6bdd5809.jpg'
+            'https://i.pinimg.com/736x/7b/1a/9c/7b1a9c8e8c8a8e8c8a8e8c8a8e8c8a8e8.jpg'
         ],
         area: '85 м²',
         time: '3 недели',
@@ -138,8 +137,7 @@ const projectsData = {
         images: [
             'https://i.pinimg.com/736x/7b/1a/9c/7b1a9c8e8c8a8e8c8a8e8c8a8e8c8a8e8.jpg',
             'https://i.pinimg.com/1200x/00/8f/20/008f20405aaea27836e9b66e6bdd5809.jpg',
-            'https://i.pinimg.com/736x/5a/8d/3c/5a8d3c0b6d8c8d0f0b8e8c8a8e8c8a8e8.jpg',
-            'https://i.pinimg.com/736x/02/2d/14/022d1470d1410718c857f77e86a99049.jpg'
+            'https://i.pinimg.com/736x/5a/8d/3c/5a8d3c0b6d8c8d0f0b8e8c8a8e8c8a8e8.jpg'
         ],
         area: '120 м²',
         time: '4 недели',
@@ -158,8 +156,7 @@ const projectsData = {
         images: [
             'https://i.pinimg.com/736x/9c/8a/8e/9c8a8e8c8a8e8c8a8e8c8a8e8c8a8e8c8.jpg',
             'https://i.pinimg.com/736x/5a/8d/3c/5a8d3c0b6d8c8d0f0b8e8c8a8e8c8a8e8.jpg',
-            'https://i.pinimg.com/736x/7b/1a/9c/7b1a9c8e8c8a8e8c8a8e8c8a8e8c8a8e8.jpg',
-            'https://i.pinimg.com/1200x/37/91/c6/3791c6816dc8afc4fa6e6c9e250e2305.jpg'
+            'https://i.pinimg.com/736x/7b/1a/9c/7b1a9c8e8c8a8e8c8a8e8c8a8e8c8a8e8.jpg'
         ],
         area: '95 м²',
         time: '2.5 недели',
@@ -303,7 +300,6 @@ function updateNavigationButtons() {
     
     if (prevBtn && nextBtn) {
         // Можно добавить логику для скрытия/показа кнопок если нужно
-        // Например, скрыть кнопку "назад" на первом изображении
     }
 }
 
@@ -319,125 +315,14 @@ function closeProjectModal() {
 
 // Обработчики событий после загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
-    // Добавляем обработчики клика на все карточки проектов
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('click', function() {
-            openProjectModal(this);
-        });
-    });
-    
-    // Закрытие модального окна при клике на крестик
-    document.querySelector('.modal-close').addEventListener('click', closeProjectModal);
-    
-    // Закрытие модального окна при клике вне его области
-    document.getElementById('projectModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeProjectModal();
-        }
-    });
-    
-    // Закрытие модального окна при нажатии Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && document.getElementById('projectModal').style.display === 'block') {
-            closeProjectModal();
-        }
-        
-        // Навигация по галерее с помощью клавиш
-        if (document.getElementById('projectModal').style.display === 'block') {
-            if (e.key === 'ArrowLeft') {
-                prevImage();
-            } else if (e.key === 'ArrowRight') {
-                nextImage();
-            }
-        }
-    });
-    
-    // Добавляем кнопки навигации для галереи
-    const modalImage = document.querySelector('.modal-image');
-    if (modalImage) {
-        const prevArrow = document.createElement('button');
-        prevArrow.className = 'slide-arrow prev-arrow';
-        prevArrow.innerHTML = '‹';
-        prevArrow.addEventListener('click', prevImage);
-        
-        const nextArrow = document.createElement('button');
-        nextArrow.className = 'slide-arrow next-arrow';
-        nextArrow.innerHTML = '›';
-        nextArrow.addEventListener('click', nextImage);
-        
-        modalImage.appendChild(prevArrow);
-        modalImage.appendChild(nextArrow);
-    }
-});
-
-// Фильтрация проектов
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Убираем активный класс у всех кнопок
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Добавляем активный класс текущей кнопке
-            button.classList.add('active');
-            
-            const filterValue = button.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filterValue === 'all') {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    const cardCategories = card.getAttribute('data-category').split(' ');
-                    if (cardCategories.includes(filterValue)) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                }
-            });
-        });
-    });
-});
-
-// Функция для предзагрузки изображений (опционально)
-function preloadImages(images) {
-    images.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-}
-
-// Предзагрузка изображений при загрузке страницы
-window.addEventListener('load', function() {
-    Object.values(projectsData).forEach(project => {
-        preloadImages(project.images);
-    });
-});
-
-// Обработчики событий после загрузки DOM
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM загружен, инициализация обработчиков...');
+    console.log('DOM загружен, инициализация обработчиков проектов...');
     
     // Добавляем обработчики клика на все карточки проектов
     const projectCards = document.querySelectorAll('.project-card');
     console.log('Найдено карточек проектов:', projectCards.length);
     
     projectCards.forEach((card, index) => {
-        card.style.cursor = 'pointer'; // Добавляем курсор указателя
+        card.style.cursor = 'pointer';
         
         // Обработчик клика по всей карточке
         card.addEventListener('click', function(e) {
@@ -467,7 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Остальные обработчики остаются без изменений...
     // Закрытие модального окна при клике на крестик
     const closeBtn = document.querySelector('.modal-close');
     if (closeBtn) {
@@ -522,4 +406,58 @@ document.addEventListener('DOMContentLoaded', function() {
         modalImage.appendChild(prevArrow);
         modalImage.appendChild(nextArrow);
     }
+    
+    // Фильтрация проектов
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Убираем активный класс у всех кнопок
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Добавляем активный класс текущей кнопке
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            projectCards.forEach(card => {
+                if (filterValue === 'all') {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    const cardCategories = card.getAttribute('data-category').split(' ');
+                    if (cardCategories.includes(filterValue)) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                }
+            });
+        });
+    });
+});
+
+// Функция для предзагрузки изображений
+function preloadImages(images) {
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+}
+
+// Предзагрузка изображений при загрузке страницы
+window.addEventListener('load', function() {
+    Object.values(projectsData).forEach(project => {
+        preloadImages(project.images);
+    });
 });
