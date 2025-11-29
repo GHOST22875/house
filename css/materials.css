@@ -1,0 +1,292 @@
+/* Стили для страницы материалов */
+.materials-hero {
+    height: 60vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/736x/0f/92/c5/0f92c5f1ee2bce5d0ee792415b6ef6eb.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.materials-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.materials-hero-content p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.materials-section {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.materials-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    background-color: white;
+    border: 2px solid #4CAF50;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.material-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.material-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.material-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.material-content {
+    padding: 20px;
+}
+
+.material-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.material-properties {
+    margin: 15px 0;
+}
+
+.property {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.property-name {
+    font-weight: 600;
+    color: #555;
+}
+
+.property-value {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.material-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.material-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.material-cta {
+    text-align: center;
+}
+
+.advantages-section {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 0 20px;
+}
+
+.advantage-card {
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-5px);
+}
+
+.advantage-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.advantage-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.advantage-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.materials-cta {
+    padding: 80px 0;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+}
+
+.materials-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.materials-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.materials-cta .btn {
+    background-color: white;
+    color: #4CAF50;
+    font-size: 1.1rem;
+    padding: 15px 40px;
+}
+
+.materials-cta .btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Темная тема для страницы материалов */
+.dark-theme .materials-section {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .material-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .material-content h3 {
+    color: #ffffff;
+}
+
+.dark-theme .property-name {
+    color: #b0b0b0;
+}
+
+.dark-theme .material-description {
+    color: #b0b0b0;
+}
+
+.dark-theme .filter-btn {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border-color: #4CAF50;
+}
+
+.dark-theme .filter-btn.active, 
+.dark-theme .filter-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dark-theme .advantage-card {
+    background-color: #2d2d2d;
+}
+
+.dark-theme .advantage-card h3 {
+    color: #ffffff;
+}
+
+.dark-theme .advantage-card p {
+    color: #b0b0b0;
+}
+
+/* Адаптивность для страницы материалов */
+@media (max-width: 768px) {
+    .materials-hero {
+        height: 50vh;
+        margin-top: 60px;
+    }
+    
+    .materials-hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .materials-hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .materials-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .materials-hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .materials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .materials-cta h2 {
+        font-size: 1.8rem;
+    }
+    
+    .materials-cta p {
+        font-size: 1rem;
+    }
+}
