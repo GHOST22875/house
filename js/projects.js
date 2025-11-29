@@ -1,6 +1,6 @@
 // Данные проектов с несколькими изображениями
 const projectsData = {
-    "Дом 'Северный'": {
+    "Дом \'Северный\'": {
         images: [
             'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
             'https://i.pinimg.com/736x/02/2d/14/022d1470d1410718c857f77e86a99049.jpg',
