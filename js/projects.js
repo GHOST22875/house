@@ -19,7 +19,7 @@ const projectsData = {
             'Энергоэффективные технологии'
         ]
     },
-    "Дом 'Лесной'": {
+    "Дом Лесной": {
         images: [
             'https://images.unsplash.com/photo-1600607688969-a5bfcd646154?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
             'https://i.pinimg.com/1200x/9f/8d/9f/9f8d9fabbacb8e6145caf82c13e89f47.jpg',
