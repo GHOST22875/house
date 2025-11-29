@@ -3262,3 +3262,45 @@ body.dark-theme {
     }
 }
 
+/* Добавим в CSS */
+.project-view-btn {
+    background: rgba(255, 255, 255, 0.95);
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 10;
+}
+
+.project-view-btn:hover {
+    background: #4CAF50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* Убедимся, что кнопка кликабельна */
+.project-view-btn:active {
+    transform: translateY(0);
+}
+
+/* Предотвращаем всплытие события от кнопки */
+.project-card * {
+    pointer-events: none;
+}
+
+.project-view-btn {
+    pointer-events: auto;
+}
+
+.project-card {
+    cursor: pointer;
+    position: relative;
+}
