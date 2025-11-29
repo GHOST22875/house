@@ -749,3 +749,150 @@
         height: 80vh;
     }
 }
+
+/* Стили для секции проектов */
+.projects {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.terrace-section-title {
+    /* Специфический класс для заголовка секции террас */
+    text-align: center;
+    margin-bottom: 50px;
+    color: #2c3e50;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: 300px;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-info {
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+}
+
+.project-info h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.project-info p {
+    margin-bottom: 8px;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+/* Темная тема для проектов */
+.dark-theme .projects {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .section-title {
+    color: #ffffff;
+}
+
+.dark-theme .project-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .project-info h3 {
+    color: #ffffff;
+}
+
+.dark-theme .project-info p {
+    color: #b0b0b0;
+}
+
+/* Адаптивность для проектов */
+@media (max-width: 768px) {
+    .projects {
+        padding: 60px 15px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .project-card {
+        height: 250px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .projects {
+        padding: 40px 10px;
+    }
+    
+    .project-card {
+        height: 200px;
+    }
+    
+    .project-info {
+        padding: 15px;
+    }
+    
+    .project-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .project-info p {
+        font-size: 0.8rem;
+    }
+}
