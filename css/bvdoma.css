@@ -1,3 +1,15 @@
+
+
+/* Основной фон для всей страницы в темной теме */
+.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-theme body {
+    background-color: #121212;
+}
+
 /* Стили для модульных домов */
 .bv-hero {
     height: 100vh;
@@ -526,14 +538,12 @@
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.pinimg.com/1200x/e4/e2/3a/e4e23ad9bca135a2b337349d6d41f617.jpg');
 }
 
+/* Основной фон для всех секций в темной теме */
 .dark-theme .assembly-section,
 .dark-theme .warmth-section,
 .dark-theme .completed-projects,
 .dark-theme .guarantee-section,
-.dark-theme .consultation-section {
-    background-color: #1e1e1e;
-}
-
+.dark-theme .consultation-section,
 .dark-theme .savings-section,
 .dark-theme .technology-section,
 .dark-theme .ready-houses,
@@ -834,7 +844,7 @@
 
 /* Темная тема для проектов */
 .dark-theme .projects {
-    background-color: #1e1e1e;
+    background-color: #121212;
 }
 
 .dark-theme .section-title {
@@ -935,4 +945,22 @@
 .advantage-card p {
     color: #666;
     line-height: 1.6;
+}
+
+/* Темная тема для секции преимуществ */
+.dark-theme .advantages-section {
+    background-color: #121212;
+}
+
+.dark-theme .advantage-card {
+    background-color: #2d2d2d;
+    border: 1px solid #444;
+}
+
+.dark-theme .advantage-card h3 {
+    color: #ffffff;
+}
+
+.dark-theme .advantage-card p {
+    color: #b0b0b0;
 }
