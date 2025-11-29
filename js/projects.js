@@ -427,3 +427,99 @@ window.addEventListener('load', function() {
         preloadImages(project.images);
     });
 });
+
+// Обработчики событий после загрузки DOM
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM загружен, инициализация обработчиков...');
+    
+    // Добавляем обработчики клика на все карточки проектов
+    const projectCards = document.querySelectorAll('.project-card');
+    console.log('Найдено карточек проектов:', projectCards.length);
+    
+    projectCards.forEach((card, index) => {
+        card.style.cursor = 'pointer'; // Добавляем курсор указателя
+        
+        // Обработчик клика по всей карточке
+        card.addEventListener('click', function(e) {
+            // Игнорируем клики по кнопке
+            if (!e.target.classList.contains('project-view-btn')) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Клик по карточке:', index);
+                openProjectModal(this);
+            }
+        });
+    });
+    
+    // Добавляем обработчики для кнопок "Смотреть фото"
+    const viewButtons = document.querySelectorAll('.project-view-btn');
+    viewButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const projectName = this.getAttribute('data-project');
+            console.log('Клик по кнопке просмотра:', projectName);
+            
+            // Находим родительскую карточку
+            const projectCard = this.closest('.project-card');
+            openProjectModal(projectCard);
+        });
+    });
+    
+    // Остальные обработчики остаются без изменений...
+    // Закрытие модального окна при клике на крестик
+    const closeBtn = document.querySelector('.modal-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeProjectModal);
+    }
+    
+    // Закрытие модального окна при клике вне его области
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectModal();
+            }
+        });
+    }
+    
+    // Закрытие модального окна при нажатии Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('projectModal').style.display === 'block') {
+            closeProjectModal();
+        }
+        
+        // Навигация по галерее с помощью клавиш
+        if (document.getElementById('projectModal').style.display === 'block') {
+            if (e.key === 'ArrowLeft') {
+                prevImage();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
+            }
+        }
+    });
+    
+    // Добавляем кнопки навигации для галереи
+    const modalImage = document.querySelector('.modal-image');
+    if (modalImage) {
+        const prevArrow = document.createElement('button');
+        prevArrow.className = 'slide-arrow prev-arrow';
+        prevArrow.innerHTML = '‹';
+        prevArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevImage();
+        });
+        
+        const nextArrow = document.createElement('button');
+        nextArrow.className = 'slide-arrow next-arrow';
+        nextArrow.innerHTML = '›';
+        nextArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextImage();
+        });
+        
+        modalImage.appendChild(prevArrow);
+        modalImage.appendChild(nextArrow);
+    }
+});
