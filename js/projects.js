@@ -335,27 +335,19 @@ function closeProjectModal() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM загружен, инициализация обработчиков проектов...');
     
-    // Добавляем обработчики клика на все карточки проектов
+    // УБИРАЕМ обработчики клика на всю карточку проекта
     const projectCards = document.querySelectorAll('.project-card');
     console.log('Найдено карточек проектов:', projectCards.length);
     
-    projectCards.forEach((card, index) => {
-        card.style.cursor = 'pointer';
-        
-        // Обработчик клика по всей карточке
-        card.addEventListener('click', function(e) {
-            // Игнорируем клики по кнопке
-            if (!e.target.classList.contains('project-view-btn')) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('Клик по карточке:', index);
-                openProjectModal(this);
-            }
-        });
+    // Убираем курсор pointer с карточек
+    projectCards.forEach(card => {
+        card.style.cursor = 'default';
     });
     
-    // Добавляем обработчики для кнопок "Смотреть фото"
+    // Добавляем обработчики ТОЛЬКО для кнопок "Смотреть фото"
     const viewButtons = document.querySelectorAll('.project-view-btn');
+    console.log('Найдено кнопок просмотра:', viewButtons.length);
+    
     viewButtons.forEach(button => {
         button.addEventListener('click', function(e) {
             e.preventDefault();
@@ -366,7 +358,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Находим родительскую карточку
             const projectCard = this.closest('.project-card');
-            openProjectModal(projectCard);
+            if (projectCard) {
+                openProjectModal(projectCard);
+            } else {
+                console.error('Не удалось найти родительскую карточку для кнопки:', projectName);
+            }
         });
     });
     
