@@ -964,3 +964,78 @@
 .dark-theme .advantage-card p {
     color: #b0b0b0;
 }
+
+/* Центрирование заголовков и текста в секциях */
+.assembly-section h2,
+.savings-section h2,
+.technology-section h2,
+.warmth-section h2,
+.ready-houses h2,
+.production-section h2,
+.delivery-section h2,
+.guarantee-section h2,
+.advantages-section h2,
+.estimate-section h2,
+.faq-section h2,
+.consultation-section h2 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Центрирование подзаголовков */
+.section-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Центрирование текста в секции технологии */
+.tech-specs ul {
+    text-align: center;
+    list-style-position: inside;
+    padding: 0;
+}
+
+.tech-specs li {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Центрирование текста в секции тепла */
+.warmth-content {
+    text-align: center;
+}
+
+/* Центрирование текста в секции доставки */
+.delivery-section p {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Центрирование текста в секции гарантии */
+.guarantee-details {
+    text-align: center;
+}
+
+/* Центрирование текста в секции сметы */
+.estimate-example h3 {
+    text-align: center;
+}
+
+/* Центрирование текста в секции FAQ */
+.faq-section h2 {
+    text-align: center;
+}
+
+/* Центрирование текста в секции консультации */
+.consultation-section h2 {
+    text-align: center;
+}
+
+/* Центрирование преимуществ в секции преимуществ */
+.advantages-section h2 {
+    text-align: center;
+}
