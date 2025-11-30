@@ -28,11 +28,11 @@
     background-color: #f9f9f9;
 }
 
-.terrace-section-title {
+.section-title {
     text-align: center;
     margin-bottom: 50px;
     color: #2c3e50;
-    transition: color 0.3s ease;
+    font-size: 2.5rem;
 }
 
 .terrace-grid {
@@ -49,6 +49,8 @@
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 30px 20px;
 }
 
 .terrace-card:hover {
@@ -56,56 +58,21 @@
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-.terrace-image {
-    height: 250px;
-    background-size: cover;
-    background-position: center;
+.terrace-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
 }
 
-.terrace-content {
-    padding: 25px;
-}
-
-.terrace-content h3 {
+.terrace-card h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
     color: #2c3e50;
 }
 
-.terrace-features {
-    margin: 15px 0;
-}
-
-.terrace-feature {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 8px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.feature-name {
-    font-weight: 600;
-    color: #555;
-}
-
-.feature-value {
-    color: #4CAF50;
-    font-weight: 500;
-}
-
-.terrace-description {
+.terrace-card p {
     color: #666;
     line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.terrace-price {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #4CAF50;
-    margin-bottom: 20px;
-    text-align: center;
 }
 
 .advantages-section-terrace {
@@ -157,47 +124,149 @@
     font-size: 1rem;
 }
 
-.materials-section-terrace {
+.materials-section {
     padding: 80px 20px;
     background-color: #f9f9f9;
 }
 
-.materials-grid-terrace {
+.materials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.material-item {
-    text-align: center;
-    padding: 30px 20px;
-    background: white;
+.material-card {
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.material-item:hover {
-    transform: translateY(-5px);
+.material-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-.material-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #4CAF50;
+.material-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
 }
 
-.material-item h4 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
+.material-content {
+    padding: 20px;
+}
+
+.material-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
     color: #2c3e50;
 }
 
-.material-item p {
+.material-properties {
+    margin: 15px 0;
+}
+
+.property {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.property-name {
+    font-weight: 600;
+    color: #555;
+}
+
+.property-value {
+    color: #4CAF50;
+    font-weight: 500;
+}
+
+.material-description {
     color: #666;
     line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.material-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.material-cta {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.projects-section {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-img {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.project-info p {
+    color: #666;
+    margin-bottom: 5px;
 }
 
 .terrace-cta {
@@ -231,29 +300,13 @@
     background-color: #f0f0f0;
 }
 
-.cookies-notice {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #4CAF50;
-}
-
-.cookies-notice p {
-    color: #666;
-    font-size: 0.9rem;
-    margin: 0;
-    font-style: italic;
-}
-
 /* Темная тема для террас */
 .dark-theme .terrace-section {
     background-color: #1e1e1e;
 }
 
-.dark-theme .terrace-section-title {
-    color: #ffffff !important;
+.dark-theme .section-title {
+    color: #ffffff;
 }
 
 .dark-theme .terrace-card {
@@ -261,15 +314,11 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.dark-theme .terrace-content h3 {
+.dark-theme .terrace-card h3 {
     color: #ffffff;
 }
 
-.dark-theme .feature-name {
-    color: #b0b0b0;
-}
-
-.dark-theme .terrace-description {
+.dark-theme .terrace-card p {
     color: #b0b0b0;
 }
 
@@ -295,30 +344,55 @@
     color: #b0b0b0;
 }
 
-.dark-theme .materials-section-terrace {
+.dark-theme .materials-section {
     background-color: #1e1e1e;
 }
 
-.dark-theme .material-item {
+.dark-theme .material-card {
     background-color: #2d2d2d;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.dark-theme .material-item h4 {
+.dark-theme .material-content h3 {
     color: #ffffff;
 }
 
-.dark-theme .material-item p {
+.dark-theme .property-name {
     color: #b0b0b0;
 }
 
-.dark-theme .cookies-notice {
-    background-color: #2d2d2d;
-    border-left-color: #4CAF50;
+.dark-theme .material-description {
+    color: #b0b0b0;
 }
 
-.dark-theme .cookies-notice p {
-    color: #888;
+.dark-theme .projects-section {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .project-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .project-info h3 {
+    color: #ffffff;
+}
+
+.dark-theme .project-info p {
+    color: #b0b0b0;
+}
+
+.dark-theme .terrace-cta {
+    background-color: #2d2d2d;
+}
+
+.dark-theme .terrace-cta .btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dark-theme .terrace-cta .btn:hover {
+    background-color: #45a049;
 }
 
 /* Адаптивность для террас */
@@ -344,8 +418,16 @@
         grid-template-columns: 1fr;
     }
     
-    .materials-grid-terrace {
+    .materials-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2rem;
     }
 }
 
@@ -372,5 +454,13 @@
     
     .advantage-icon-terrace {
         font-size: 3rem;
+    }
+    
+    .material-content {
+        padding: 15px;
+    }
+    
+    .project-info {
+        padding: 15px;
     }
 }
