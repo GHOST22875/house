@@ -29,8 +29,10 @@
 }
 
 .section-title {
-    text-align: center; /* Центрирование заголовков */
+    text-align: center;
     margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: #2c3e50;
 }
 
 .materials-filter {
@@ -49,6 +51,7 @@
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
+    font-size: 1rem;
 }
 
 .filter-btn.active, .filter-btn:hover {
@@ -133,6 +136,24 @@
     text-align: center;
 }
 
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
 .advantages-section {
     padding: 80px 0;
     background-color: white;
@@ -154,10 +175,12 @@
     border-radius: 10px;
     background-color: #f9f9f9;
     transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .advantage-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .advantage-icon {
@@ -205,6 +228,7 @@
 
 .materials-cta .btn:hover {
     background-color: #f0f0f0;
+    transform: translateY(-2px);
 }
 
 /* Темная тема для страницы материалов */
@@ -241,8 +265,13 @@
     color: white;
 }
 
+.dark-theme .advantages-section {
+    background-color: #1e1e1e;
+}
+
 .dark-theme .advantage-card {
     background-color: #2d2d2d;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .dark-theme .advantage-card h3 {
@@ -251,6 +280,43 @@
 
 .dark-theme .advantage-card p {
     color: #b0b0b0;
+}
+
+.dark-theme .section-title {
+    color: #ffffff;
+}
+
+.dark-theme .materials-cta {
+    background-color: #2d2d2d;
+}
+
+.dark-theme .materials-cta .btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.dark-theme .materials-cta .btn:hover {
+    background-color: #45a049;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.material-card {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.advantage-card {
+    animation: fadeIn 0.6s ease-out;
 }
 
 /* Адаптивность для страницы материалов */
@@ -275,16 +341,70 @@
     
     .filter-btn {
         width: 200px;
+        margin-bottom: 10px;
+    }
+    
+    .materials-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .materials-cta h2 {
+        font-size: 2rem;
+    }
+    
+    .materials-cta p {
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 576px) {
+    .materials-hero {
+        height: 40vh;
+        margin-top: 60px;
+    }
+    
     .materials-hero-content h1 {
         font-size: 1.8rem;
     }
     
+    .materials-hero-content p {
+        font-size: 1rem;
+    }
+    
     .materials-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .material-card {
+        margin: 0 10px;
+    }
+    
+    .material-content {
+        padding: 15px;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .advantage-card {
+        padding: 20px;
+    }
+    
+    .materials-cta {
+        padding: 60px 0;
     }
     
     .materials-cta h2 {
@@ -293,5 +413,75 @@
     
     .materials-cta p {
         font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .materials-hero-content h1 {
+        font-size: 1.5rem;
+    }
+    
+    .materials-hero-content p {
+        font-size: 0.9rem;
+    }
+    
+    .filter-btn {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .material-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .material-price {
+        font-size: 1.1rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Стили для скрытия элементов при фильтрации */
+.material-card.hidden {
+    display: none;
+}
+
+.material-card.visible {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Дополнительные стили для улучшения UX */
+.filter-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+.material-card:focus-within {
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+}
+
+/* Плавная прокрутка для якорных ссылок */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Улучшение доступности */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
     }
 }
