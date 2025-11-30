@@ -28,6 +28,11 @@
     background-color: #f9f9f9;
 }
 
+.section-title {
+    text-align: center; /* Центрирование заголовков */
+    margin-bottom: 40px;
+}
+
 .materials-filter {
     display: flex;
     justify-content: center;
