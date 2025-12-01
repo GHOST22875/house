@@ -149,9 +149,9 @@ const projectsData = {
     },
      "Фасад 'Классический'": {
         images: [
-            'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-            'https://i.pinimg.com/736x/02/2d/14/022d1470d1410718c857f77e86a99049.jpg',
-            'https://i.pinimg.com/1200x/9f/8d/9f/9f8d9fabbacb8e6145caf82c13e89f47.jpg'
+            './image/facade1/5256075123540822993.jpg',
+            './image/facade1/5256075123540822992.jpg',
+            './image/facade1/5256075123540822991.jpg'
         ],
         area: '120 м²',
         time: '3 месяца',
@@ -170,9 +170,9 @@ const projectsData = {
     },
      "Фасад 'Современный'": {
         images: [
-            'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-            'https://i.pinimg.com/736x/02/2d/14/022d1470d1410718c857f77e86a99049.jpg',
-            'https://i.pinimg.com/1200x/9f/8d/9f/9f8d9fabbacb8e6145caf82c13e89f47.jpg'
+            './image/facade2/5256075123540823007.jpg',
+            './image/facade2/5256075123540822998.jpg',
+            './image/facade2/5256075123540823009.jpg'
         ],
         area: '120 м²',
         time: '3 месяца',
