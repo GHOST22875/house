@@ -312,3 +312,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Добавляем инициализацию FAQ
     initFAQ();
 });
+
+// В конец файла script.js добавить:
+
+// Инициализация галереи если она есть на странице
+function initGalleryIfExists() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    if (galleryItems.length > 0) {
+        // Проверяем, подключен ли уже скрипт галереи
+        if (typeof initGallery === 'function') {
+            initGallery();
+        } else {
+            // Если отдельный файл gallery.js не подключен, загружаем данные
+            console.log('Галерея найдена, но скрипт не подключен');
+        }
+    }
+}
+
+// Инициализируем галерею при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    // ... существующий код ...
+    
+    // Добавляем инициализацию галереи
+    initGalleryIfExists();
+});
