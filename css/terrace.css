@@ -464,3 +464,14 @@
         padding: 15px;
     }
 }
+
+/* Добавить эти стили в конец файла terrace.css */
+
+/* Стили для галереи в темной теме */
+.dark-theme .gallery-section {
+    background-color: #1e1e1e;
+}
+
+.dark-theme .section-subtitle {
+    color: #b0b0b0;
+}
