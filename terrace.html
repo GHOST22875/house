@@ -6,6 +6,8 @@
     <title>Террасные покрытия - EarthDom</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/terrace.css">
+    <!-- Добавляем стиль для галереи -->
+    <link rel="stylesheet" href="css/gallery.css">
 </head>
 <body>
     <!-- Навигационное меню -->
@@ -195,6 +197,85 @@
         </div>
     </section>
 
+    <!-- Новая секция с галереей проектов -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Галерея проектов</h2>
+            <p class="section-subtitle">Нажмите на любой проект, чтобы увидеть больше фотографий и подробностей</p>
+            
+            <div class="gallery-grid">
+                <!-- Проект 1 -->
+                <div class="gallery-item" data-gallery="project1">
+                    <img src="https://i.pinimg.com/736x/0f/92/c5/0f92c5f1ee2bce5d0ee792415b6ef6eb.jpg" alt="Терраса из ДПК" class="gallery-item-img">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">Терраса из ДПК</div>
+                        <div class="gallery-item-subtitle">Загородный дом, Московская область</div>
+                    </div>
+                </div>
+                
+                <!-- Проект 2 -->
+                <div class="gallery-item" data-gallery="project2">
+                    <img src="https://i.pinimg.com/736x/b8/68/cf/b868cf28c80d5fc663ab01344d0a5534.jpg" alt="Терраса из лиственницы" class="gallery-item-img">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">Терраса из лиственницы</div>
+                        <div class="gallery-item-subtitle">Дачный участок, Ленинградская область</div>
+                    </div>
+                </div>
+                
+                <!-- Проект 3 -->
+                <div class="gallery-item" data-gallery="project3">
+                    <img src="https://i.pinimg.com/736x/a5/7b/38/a57b38b8ab04dd83e66895bb3d96d978.jpg" alt="Комбинированная терраса" class="gallery-item-img">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">Комбинированная терраса</div>
+                        <div class="gallery-item-subtitle">Частный дом, Калужская область</div>
+                    </div>
+                </div>
+                
+                <!-- Проект 4 -->
+                <div class="gallery-item" data-gallery="project4">
+                    <img src="https://i.pinimg.com/736x/9e/47/cb/9e47cb699e37288fa745f2868f40a0e8.jpg" alt="Терраса с навесом" class="gallery-item-img">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">Терраса с навесом</div>
+                        <div class="gallery-item-subtitle">Коттеджный поселок, Новорижское шоссе</div>
+                    </div>
+                </div>
+                
+                <!-- Проект 5 -->
+                <div class="gallery-item" data-gallery="project5">
+                    <img src="https://i.pinimg.com/736x/23/fb/80/23fb80e93698635dc44b2fb9c664da3c.jpg" alt="Терраса из термодревесины" class="gallery-item-img">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">Терраса из термодревесины</div>
+                        <div class="gallery-item-subtitle">Элитный коттедж, Рублевское шоссе</div>
+                    </div>
+                </div>
+                
+                <!-- Проект 6 -->
+                <div class="gallery-item" data-gallery="project6">
+                    <img src="https://i.pinimg.com/736x/d4/26/3b/d4263bb93d82a2bea3ba25a3573b45a8.jpg" alt="Большая семейная терраса" class="gallery-item-img">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">Большая семейная терраса</div>
+                        <div class="gallery-item-subtitle">Загородный дом, Тверская область</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальное окно галереи -->
+    <div class="gallery-modal" id="galleryModal">
+        <button class="gallery-modal-close" id="closeGallery">&times;</button>
+        <button class="gallery-modal-nav gallery-modal-prev" id="prevBtn">‹</button>
+        <button class="gallery-modal-nav gallery-modal-next" id="nextBtn">›</button>
+        
+        <div class="gallery-modal-content">
+            <img id="modalImage" class="gallery-modal-img" src="" alt="">
+            <div class="gallery-modal-info">
+                <div id="modalTitle" class="gallery-modal-title"></div>
+                <div id="modalCounter" class="gallery-modal-counter"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Секция с призывом к действию -->
     <section class="terrace-cta" id="contact">
         <div class="container">
@@ -238,6 +319,9 @@
         </div>
     </footer>
     
+    <!-- Подключаем скрипты -->
     <script src="js/script.js"></script>
+    <!-- Подключаем скрипт галереи -->
+    <script src="js/gallery.js"></script>
 </body>
 </html>
