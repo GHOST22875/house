@@ -128,9 +128,11 @@ const projectsData = {
     },
      "Фасад 'Скандинавский'": {
         images: [
-            'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-            'https://i.pinimg.com/736x/02/2d/14/022d1470d1410718c857f77e86a99049.jpg',
-            'https://i.pinimg.com/1200x/9f/8d/9f/9f8d9fabbacb8e6145caf82c13e89f47.jpg'
+            './image/facade3/photo_2025-11-19_10-39-37.jpg',
+            './image/facade3/photo_2025-11-19_10-39-57.jpg',
+            './image/facade3/photo_2025-11-19_10-39-58.jpg',
+            './image/facade3/photo_2025-11-19_10-39-59.jpg',
+            './image/facade3/photo_2025-11-19_10-40-03.jpg'
         ],
         area: '120 м²',
         time: '3 месяца',
