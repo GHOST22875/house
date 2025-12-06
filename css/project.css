@@ -86,10 +86,10 @@
 }
 
 .project-info p {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #666;
     font-size: 0.95rem;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
 .project-details {
