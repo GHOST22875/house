@@ -73,14 +73,17 @@
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto 80px;
+    align-items: stretch;
 }
 
+/* Обновленные стили для карточек работ */
 .work-card {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    height: 450px;
+    height: auto;
+    min-height: 400px;
     transition: all 0.3s ease;
     background: white;
     display: flex;
@@ -88,7 +91,7 @@
 }
 
 .work-img {
-    height: 50%;
+    height: 200px;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -106,7 +109,7 @@
 
 .work-info {
     padding: 25px;
-    height: 50%;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -115,7 +118,10 @@
 .work-meta {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .work-category {
@@ -125,64 +131,83 @@
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .work-year {
     color: #666;
     font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .work-info h2 {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     font-size: 1.3rem;
     color: #2c3e50;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.4;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
 }
 
 .work-info > p {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: #666;
     font-size: 0.95rem;
-    line-height: 1.4;
+    line-height: 1.5;
     flex-grow: 1;
+    min-height: 72px;
 }
 
 .work-details {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
+    padding: 15px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .work-area, .work-time {
     display: flex;
     align-items: center;
     color: #555;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
 }
 
 .work-area::before {
     content: "📐";
-    margin-right: 5px;
+    margin-right: 8px;
+    font-size: 1.1rem;
 }
 
 .work-time::before {
     content: "⏱️";
-    margin-right: 5px;
+    margin-right: 8px;
+    font-size: 1.1rem;
 }
 
 .work-view-btn {
-    padding: 12px 20px;
+    padding: 14px 20px;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
-    font-size: 0.95rem;
+    font-size: 1rem;
     text-align: center;
     width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: auto;
 }
 
 .work-view-btn:hover {
@@ -385,6 +410,11 @@
     color: #b0b0b0;
 }
 
+.dark-theme .work-meta,
+.dark-theme .work-details {
+    border-color: #444;
+}
+
 .dark-theme .filter-btn {
     background-color: #2d2d2d;
     color: #e0e0e0;
@@ -467,7 +497,22 @@
     }
     
     .work-card {
-        height: 400px;
+        height: auto;
+        min-height: 380px;
+    }
+    
+    .work-img {
+        height: 180px;
+    }
+    
+    .work-info h2 {
+        min-height: auto;
+        font-size: 1.2rem;
+    }
+    
+    .work-info > p {
+        min-height: auto;
+        font-size: 0.9rem;
     }
     
     .works-stats {
