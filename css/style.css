@@ -5,9 +5,24 @@
     font-family: 'Arial', sans-serif;
 }
 
+/* Убираем скроллбар на всех элементах */
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
 body {
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    width: 100%;
+}
+
+/* Убираем горизонтальный скролл */
+html {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Предотвращаем скролл тела при открытом меню */
