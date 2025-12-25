@@ -278,6 +278,19 @@ body.dark-theme {
     background-color: #ffffff;
 }
 
+/* Исправления для мобильного меню в темной теме */
+.dark-theme .nav-links {
+    background-color: #1e1e1e; /* Темный фон для меню в темной теме */
+}
+
+.dark-theme .nav-links a {
+    color: #e0e0e0; /* Цвет текста для ссылок в темной теме */
+}
+
+.dark-theme .nav-links a:hover {
+    color: #ffffff; /* Цвет текста при наведении в темной теме */
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     nav {
@@ -353,6 +366,23 @@ body.dark-theme {
     
     .footer-column {
         text-align: center;
+    }
+    
+    /* Исправления для темной темы на мобильных устройствах */
+    .dark-theme .nav-links {
+        background-color: #1a1a1a; /* Темный фон для мобильного меню в темной теме */
+    }
+    
+    .dark-theme .nav-links a {
+        color: #e0e0e0;
+    }
+    
+    .dark-theme .nav-links a:hover {
+        color: #ffffff;
+    }
+    
+    .dark-theme .mobile-menu-toggle span {
+        background-color: #ffffff;
     }
 }
 
