@@ -445,3 +445,13 @@ body.dark-theme {
         height: 18px;
     }
 }
+
+/* Полностью убираем скроллбар */
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    -ms-overflow-style: none;  /* IE и Edge */
+    scrollbar-width: none;      /* Firefox */
+}
