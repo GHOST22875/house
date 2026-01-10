@@ -67,29 +67,6 @@ function openWorkModal(workName) {
         mainImage.style.opacity = '1';
     }
     
-    // Создаем миниатюры
-    const thumbnailsContainer = document.getElementById('modalWorkThumbnails');
-    if (thumbnailsContainer) {
-        thumbnailsContainer.innerHTML = '';
-        
-        workData.images.forEach((imageUrl, index) => {
-            const thumbnail = document.createElement('div');
-            thumbnail.className = 'thumbnail';
-            if (index === 0) thumbnail.classList.add('active');
-            
-            const img = document.createElement('img');
-            img.src = imageUrl;
-            img.alt = `${workName} - фото ${index + 1}`;
-            img.loading = 'lazy';
-            
-            thumbnail.appendChild(img);
-            thumbnail.addEventListener('click', () => {
-                changeWorkMainImage(index);
-            });
-            
-            thumbnailsContainer.appendChild(thumbnail);
-        });
-    }
     
     // Показываем/скрываем кнопки навигации в зависимости от количества изображений
     updateNavigationButtons(workData.images.length);
