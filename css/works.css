@@ -564,3 +564,16 @@
         font-size: 1rem;
     }
 }
+
+/* В файл works.css добавьте: */
+.modal-details,
+.modal-description,
+.modal-features,
+.modal-client {
+    display: none !important;
+}
+
+/* Или если хотите оставить только заголовок: */
+.modal-info > *:not(#modalWorkTitle) {
+    display: none !important;
+}
