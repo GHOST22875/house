@@ -64,11 +64,8 @@ function openWorkModal(workName) {
     if (mainImage) {
         mainImage.src = currentWorkImages[currentWorkImageIndex];
         mainImage.alt = workName;
+        mainImage.style.opacity = '1';
     }
-    
-    // Заполняем только заголовок
-    const titleElement = document.getElementById('modalWorkTitle');
-    if (titleElement) titleElement.textContent = workName;
     
     // Создаем миниатюры
     const thumbnailsContainer = document.getElementById('modalWorkThumbnails');
@@ -94,13 +91,13 @@ function openWorkModal(workName) {
         });
     }
     
-    // Обновляем состояние кнопок навигации
-    updateWorkNavigationButtons();
+    // Показываем/скрываем кнопки навигации в зависимости от количества изображений
+    updateNavigationButtons(workData.images.length);
     
     // Показываем модальное окно
     const modal = document.getElementById('workModal');
     if (modal) {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
 }
@@ -124,9 +121,6 @@ function changeWorkMainImage(index) {
             document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
                 thumb.classList.toggle('active', i === currentWorkImageIndex);
             });
-            
-            // Обновляем состояние кнопок навигации
-            updateWorkNavigationButtons();
         }, 200);
     }
 }
@@ -150,8 +144,18 @@ function prevWorkImage() {
 }
 
 // Функция для обновления состояния кнопок навигации
-function updateWorkNavigationButtons() {
-    // Можно добавить логику для скрытия/показа кнопок если нужно
+function updateNavigationButtons(imageCount) {
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    
+    // Показываем кнопки только если есть более одного изображения
+    if (imageCount <= 1) {
+        if (prevArrow) prevArrow.style.display = 'none';
+        if (nextArrow) nextArrow.style.display = 'none';
+    } else {
+        if (prevArrow) prevArrow.style.display = 'flex';
+        if (nextArrow) nextArrow.style.display = 'flex';
+    }
 }
 
 // Закрытие модального окна
@@ -206,12 +210,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Закрытие модального окна при нажатии Escape
     document.addEventListener('keydown', function(e) {
         const modal = document.getElementById('workModal');
-        if (e.key === 'Escape' && modal && modal.style.display === 'block') {
+        if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
             closeWorkModal();
         }
         
         // Навигация по галерее с помощью клавиш
-        if (modal && modal.style.display === 'block') {
+        if (modal && modal.style.display === 'flex') {
             if (e.key === 'ArrowLeft') {
                 prevWorkImage();
             } else if (e.key === 'ArrowRight') {
@@ -220,30 +224,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Добавляем кнопки навигации для галереи
-    const modalImage = document.querySelector('#workModal .modal-image');
-    if (modalImage) {
-        // Проверяем, не добавлены ли уже кнопки
-        if (!modalImage.querySelector('.slide-arrow')) {
-            const prevArrow = document.createElement('button');
-            prevArrow.className = 'slide-arrow prev-arrow';
-            prevArrow.innerHTML = '‹';
-            prevArrow.addEventListener('click', (e) => {
-                e.stopPropagation();
-                prevWorkImage();
-            });
-            
-            const nextArrow = document.createElement('button');
-            nextArrow.className = 'slide-arrow next-arrow';
-            nextArrow.innerHTML = '›';
-            nextArrow.addEventListener('click', (e) => {
-                e.stopPropagation();
-                nextWorkImage();
-            });
-            
-            modalImage.appendChild(prevArrow);
-            modalImage.appendChild(nextArrow);
-        }
+    // Добавляем обработчики для кнопок навигации
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
+    
+    if (prevArrow) {
+        prevArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            prevWorkImage();
+        });
+    }
+    
+    if (nextArrow) {
+        nextArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            nextWorkImage();
+        });
     }
     
     // Фильтрация работ (если есть фильтры на странице)
