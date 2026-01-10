@@ -94,10 +94,7 @@ function changeWorkMainImage(index) {
             mainImage.src = currentWorkImages[currentWorkImageIndex];
             mainImage.style.opacity = '1';
             
-            // Обновляем активную миниатюру
-            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
-                thumb.classList.toggle('active', i === currentWorkImageIndex);
-            });
+           
         }, 200);
     }
 }
