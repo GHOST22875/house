@@ -67,6 +67,8 @@ function openWorkModal(workName) {
         mainImage.style.opacity = '1';
     }
     
+    // Обновляем индикатор текущего фото
+    updateImageCounter();
     
     // Показываем/скрываем кнопки навигации в зависимости от количества изображений
     updateNavigationButtons(workData.images.length);
@@ -76,6 +78,7 @@ function openWorkModal(workName) {
     if (modal) {
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
     }
 }
 
@@ -94,7 +97,8 @@ function changeWorkMainImage(index) {
             mainImage.src = currentWorkImages[currentWorkImageIndex];
             mainImage.style.opacity = '1';
             
-           
+            // Обновляем индикатор текущего фото
+            updateImageCounter();
         }, 200);
     }
 }
@@ -117,18 +121,30 @@ function prevWorkImage() {
     }
 }
 
+// Функция для обновления индикатора текущего фото
+function updateImageCounter() {
+    const counter = document.getElementById('imageCounter');
+    if (counter && currentWorkImages.length > 0) {
+        counter.textContent = `${currentWorkImageIndex + 1} / ${currentWorkImages.length}`;
+        counter.style.display = currentWorkImages.length > 1 ? 'block' : 'none';
+    }
+}
+
 // Функция для обновления состояния кнопок навигации
 function updateNavigationButtons(imageCount) {
     const prevArrow = document.querySelector('.prev-arrow');
     const nextArrow = document.querySelector('.next-arrow');
+    const counter = document.getElementById('imageCounter');
     
     // Показываем кнопки только если есть более одного изображения
     if (imageCount <= 1) {
         if (prevArrow) prevArrow.style.display = 'none';
         if (nextArrow) nextArrow.style.display = 'none';
+        if (counter) counter.style.display = 'none';
     } else {
         if (prevArrow) prevArrow.style.display = 'flex';
         if (nextArrow) nextArrow.style.display = 'flex';
+        if (counter) counter.style.display = 'block';
     }
 }
 
@@ -138,6 +154,7 @@ function closeWorkModal() {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+        document.documentElement.style.overflow = 'auto';
     }
     
     // Сбрасываем состояние галереи
@@ -214,6 +231,37 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
             nextWorkImage();
         });
+    }
+    
+    // Свайпы для мобильных устройств
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    const modalImage = document.getElementById('modalWorkImage');
+    if (modalImage) {
+        modalImage.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        modalImage.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+    }
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const difference = touchStartX - touchEndX;
+        
+        if (Math.abs(difference) > swipeThreshold) {
+            if (difference > 0) {
+                // Свайп влево - следующее фото
+                nextWorkImage();
+            } else {
+                // Свайп вправо - предыдущее фото
+                prevWorkImage();
+            }
+        }
     }
     
     // Фильтрация работ (если есть фильтры на странице)
