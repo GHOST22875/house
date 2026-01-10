@@ -85,6 +85,9 @@ function openWorkModal(workName) {
     const titleElement = document.getElementById('modalWorkTitle');
     if (titleElement) titleElement.textContent = workName;
     
+    // Очищаем текстовые поля (скрываем текстовую информацию)
+    clearModalTextFields();
+    
     // Создаем миниатюры
     const thumbnailsContainer = document.getElementById('modalWorkThumbnails');
     if (thumbnailsContainer) {
@@ -117,6 +120,33 @@ function openWorkModal(workName) {
     if (modal) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
+    }
+}
+
+// Функция для очистки текстовых полей в модальном окне
+function clearModalTextFields() {
+    const fieldsToClear = [
+        'modalWorkCategory',
+        'modalWorkYear',
+        'modalWorkArea',
+        'modalWorkTime',
+        'modalWorkPrice',
+        'modalWorkDescription',
+        'modalWorkReview',
+        'modalWorkRating'
+    ];
+    
+    fieldsToClear.forEach(fieldId => {
+        const element = document.getElementById(fieldId);
+        if (element) {
+            element.textContent = '';
+        }
+    });
+    
+    // Очищаем список выполненных работ
+    const featuresList = document.getElementById('modalWorkFeatures');
+    if (featuresList) {
+        featuresList.innerHTML = '';
     }
 }
 
