@@ -247,14 +247,33 @@
 }
 
 /* Секция сборки */
+.assembly-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.assembly-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: #2c3e50;
+}
+
+.assembly-section .section-subtitle {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
 .assembly-features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 35px;
     margin: 50px 0;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .assembly-feature {
@@ -296,15 +315,16 @@
     font-size: 1rem;
 }
 
-/* Детали сборки */
+/* Детали сборки - ИСПРАВЛЕНО СЛИВАНИЕ ТЕКСТА */
 .assembly-details {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin: 50px 0;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
 }
 
 .detail {
@@ -314,6 +334,18 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     border: 1px solid #eaeaea;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.detail::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #4CAF50, #2E7D32);
 }
 
 .detail:hover {
@@ -322,15 +354,28 @@
 }
 
 .detail h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 12px;
     color: #2c3e50;
     font-weight: 700;
+    padding-left: 20px;
+    position: relative;
+}
+
+.detail h4::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 .detail p {
-    color: #666;
+    color: #555;
     line-height: 1.6;
+    font-size: 1.05rem;
+    margin-top: 10px;
 }
 
 /* Секция экономии */
@@ -1404,7 +1449,7 @@
     font-size: 1.05rem;
 }
 
-/* Секция консультации */
+/* Секция консультации - ИСПРАВЛЕН МАРКИРОВАННЫЙ СПИСОК */
 .consultation-section {
     background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
     color: white;
@@ -1454,30 +1499,30 @@
 }
 
 .consultation-process ol {
-    margin-left: 20px;
-    text-align: left;
-    display: block;
-    counter-reset: item;
+    margin-left: 0;
     padding-left: 0;
+    list-style: none;
+    counter-reset: consultation-counter;
 }
 
 .consultation-process li {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     line-height: 1.8;
     font-size: 1.1rem;
-    padding-left: 45px;
+    padding-left: 50px;
     position: relative;
     color: rgba(255, 255, 255, 0.95);
+    text-align: left;
 }
 
 .consultation-process li::before {
-    counter-increment: item;
-    content: counter(item);
+    counter-increment: consultation-counter;
+    content: counter(consultation-counter);
     position: absolute;
     left: 0;
     top: 0;
-    width: 30px;
-    height: 30px;
+    width: 36px;
+    height: 36px;
     background: #ffd700;
     color: #1a237e;
     border-radius: 50%;
@@ -1485,31 +1530,16 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
 }
 
-.consultation-process ul {
-    margin-left: 20px;
-    margin-top: 10px;
-    list-style: none;
+.consultation-process li:last-child {
+    margin-bottom: 0;
 }
 
-.consultation-process ul li {
-    padding-left: 25px;
-    margin-bottom: 8px;
-    font-size: 1rem;
-}
-
-.consultation-process ul li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #ffd700;
-    background: none;
-    width: auto;
-    height: auto;
-    font-size: 1.2rem;
+/* Убираем вложенный список и делаем одной строкой */
+.consultation-process li:last-child::after {
+    content: " смету и PDF-инструкцию «7 способов сэкономить до 1 млн. Р при строительстве дома»";
 }
 
 .center-btn {
@@ -1668,14 +1698,45 @@
     color: #ffd700;
 }
 
+/* Детали сборки в темной теме - ИСПРАВЛЕНО СЛИВАНИЕ */
+.dark-theme .assembly-details {
+    background: linear-gradient(135deg, #21262d 0%, #242c38 100%);
+    border: 1px solid #30363d;
+}
+
+.dark-theme .detail {
+    background-color: #2a313c;
+    border: 1px solid #3c444d;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .detail:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .detail h4 {
+    color: #f0f6fc;
+}
+
+.dark-theme .detail p {
+    color: #c9d1d9;
+}
+
+.dark-theme .detail h4::before {
+    color: #7ee787;
+}
+
+.dark-theme .detail::before {
+    background: linear-gradient(to bottom, #7ee787, #4CAF50);
+}
+
 .dark-theme .assembly-feature,
 .dark-theme .saving-item,
 .dark-theme .warmth-feature,
 .dark-theme .estimate-feature,
 .dark-theme .advantage-card,
 .dark-theme .guarantee-item,
-.dark-theme .faq-item,
-.dark-theme .detail {
+.dark-theme .faq-item {
     background-color: #21262d;
     border: 1px solid #30363d;
 }
@@ -1749,8 +1810,7 @@
 .dark-theme .estimate-feature p,
 .dark-theme .faq-item p,
 .dark-theme .assembly-feature p,
-.dark-theme .saving-item p,
-.dark-theme .detail p {
+.dark-theme .saving-item p {
     color: #8b949e;
 }
 
