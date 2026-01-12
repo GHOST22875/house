@@ -182,7 +182,7 @@
 }
 
 .savings-section, .technology-section, .ready-houses,
-.production-section, .delivery-section, .estimate-section,
+.production-section, .estimate-section,
 .faq-section, .advantages-section {
     background-color: #ffffff;
 }
@@ -897,7 +897,7 @@
     font-size: 0.95rem;
 }
 
-/* Стили для секции проектов - ИСПРАВЛЕНО ЧЕРНЫЕ КВАДРАТЫ */
+/* Стили для секции проектов */
 .projects {
     padding: 100px 20px;
     background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
@@ -1005,10 +1005,10 @@
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Секция доставки */
+/* Секция доставки - ИСПРАВЛЕНЫ ФОНЫ */
 .delivery-section {
     padding: 100px 20px;
-    background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+    background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1598,11 +1598,19 @@
 .dark-theme .technology-section,
 .dark-theme .ready-houses,
 .dark-theme .production-section,
-.dark-theme .delivery-section,
 .dark-theme .estimate-section,
 .dark-theme .faq-section,
 .dark-theme .advantages-section {
     background-color: #1a1f29;
+}
+
+/* Секция доставки в темной теме - ИСПРАВЛЕНЫ ФОНЫ */
+.dark-theme .delivery-section {
+    background: linear-gradient(135deg, #21262d 0%, #1a1f29 100%);
+    border-top: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Заголовки и текст в темной теме */
@@ -1663,7 +1671,6 @@
 .dark-theme .assembly-feature,
 .dark-theme .saving-item,
 .dark-theme .warmth-feature,
-.dark-theme .delivery-feature,
 .dark-theme .estimate-feature,
 .dark-theme .advantage-card,
 .dark-theme .guarantee-item,
@@ -1707,11 +1714,16 @@
     color: #ffd700;
 }
 
+/* Карточки доставки в темной теме */
 .dark-theme .delivery-feature {
-    background: #21262d;
+    background: linear-gradient(135deg, #21262d 0%, #242c38 100%);
+    border: 1px solid #30363d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .dark-theme .delivery-feature:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(33, 150, 243, 0.15);
     border-color: #2196F3;
 }
 
